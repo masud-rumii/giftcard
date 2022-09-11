@@ -8,6 +8,11 @@ const PagesRoutes = [
     layout: "FullLayout",
   },
   {
+    path: "/category",
+    component: lazy(() => import("../../view/pages/category/index")),
+    layout: "FullLayout",
+  },
+  {
     path: "/product-details/:pdId",
     component: lazy(() => import("../../view/pages/home/Details")),
     layout: "FullLayout",

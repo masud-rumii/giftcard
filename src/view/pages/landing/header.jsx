@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Button, Col, Dropdown, Menu, Row } from "antd";
 import { RiMenuFill } from "react-icons/ri";
 
+import { Link } from "react-router-dom";
 import MenuLogo from "../../../layout/components/menu/logo";
 
 export default function LandingHeader() {
@@ -23,7 +24,7 @@ export default function LandingHeader() {
   const menuItems = (
     <>
       <Menu.Item key={0} className="hp-border-radius">
-        <a href="#">Demos</a>
+        <Link to="/category">Category</Link>
       </Menu.Item>
 
       <Menu.Item key={1} className="hp-border-radius">
