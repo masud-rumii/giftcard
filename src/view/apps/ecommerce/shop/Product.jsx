@@ -2,10 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import {
-  adjustItemQty,
-  loadCurrentItem,
-} from "../../../../redux/ecommerce/ecommerceActions";
+import { loadCurrentItem } from "../../../../redux/ecommerce/ecommerceActions";
 
 import { Card, Col, Row } from "antd";
 
@@ -13,11 +10,6 @@ export default function Product(props) {
   const { value } = props;
   const dispatch = useDispatch();
   const history = useHistory();
-
-  // Qty
-  const onChangeHandler = (e) => {
-    dispatch(adjustItemQty(value.id, e));
-  };
 
   const handelClick = () => {
     history.push(`/product-details/${value.id}`);
