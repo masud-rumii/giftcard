@@ -28,7 +28,7 @@ export default function LandingHeader() {
       </Menu.Item>
 
       <Menu.Item key={1} className="hp-border-radius">
-        <a href="#">Features</a>
+        <Link to="/add-image">add image</Link>
       </Menu.Item>
 
       <Menu.Item key={2} className="hp-border-radius">

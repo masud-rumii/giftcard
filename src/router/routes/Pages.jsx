@@ -7,6 +7,16 @@ const PagesRoutes = [
     layout: "FullLayout",
   },
   {
+    path: "/all-category",
+    component: lazy(() => import("../../view/pages/allCategory/index")),
+    layout: "FullLayout",
+  },
+  {
+    path: "/edit-product",
+    component: lazy(() => import("../../view/pages/editProduct/EditProduct")),
+    layout: "FullLayout",
+  },
+  {
     path: "/home",
     component: lazy(() => import("../../view/pages/home/index")),
     layout: "FullLayout",

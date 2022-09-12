@@ -6,6 +6,7 @@ import LandingFooter from "../landing/footer";
 import LandingHeader from "../landing/header";
 import CategoryCard from "./CategoryCard";
 import HeroSlider from "./HeroSlider";
+import Item from "./Item";
 export default function Category() {
   const products = useSelector((state) => state.ecommerce.products);
 
@@ -15,7 +16,7 @@ export default function Category() {
         <div className="hp-landing hp-bg-black-0 hp-bg-dark-90">
           <LandingHeader />
           <HeroSlider />
-          {/* <section className="hp-landing-container hp-landing-hero hp-pt-16">
+          <section className="hp-landing-container hp-landing-hero hp-pt-16">
             <div className="hp-px-sm-8 hp-px-16">
               <Row gutter={[24, 24]}>
                 {products.map((value) => (
@@ -23,7 +24,7 @@ export default function Category() {
                 ))}
               </Row>
             </div>
-          </section> */}
+          </section>
 
           <section className="hp-landing-container hp-py-32">
             <Row gutter={24}>

@@ -13,7 +13,7 @@ export default function Item(props) {
   const history = useHistory();
 
   const handelClick = () => {
-    history.push(`single-category/1`);
+    history.push(`/product-details/${value.id}`);
     dispatch(loadCurrentItem(value));
   };
 
