@@ -1,20 +1,19 @@
 import { lazy } from "react";
 
 const PagesRoutes = [
-  // COMPONENTS
+  {
+    path: "/single-category/:id",
+    component: lazy(() => import("../../view/pages/singleCategory/index")),
+    layout: "FullLayout",
+  },
   {
     path: "/home",
     component: lazy(() => import("../../view/pages/home/index")),
     layout: "FullLayout",
   },
   {
-    path: "/category",
-    component: lazy(() => import("../../view/pages/category/index")),
-    layout: "FullLayout",
-  },
-  {
     path: "/product-details/:pdId",
-    component: lazy(() => import("../../view/pages/home/Details")),
+    component: lazy(() => import("../../view/pages/singleCategory/Details")),
     layout: "FullLayout",
   },
   {

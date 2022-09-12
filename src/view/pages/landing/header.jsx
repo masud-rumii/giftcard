@@ -24,7 +24,7 @@ export default function LandingHeader() {
   const menuItems = (
     <>
       <Menu.Item key={0} className="hp-border-radius">
-        <Link to="/category">Category</Link>
+        <Link to="/single-category/1">Category</Link>
       </Menu.Item>
 
       <Menu.Item key={1} className="hp-border-radius">
