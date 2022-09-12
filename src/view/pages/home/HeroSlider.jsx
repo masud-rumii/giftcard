@@ -28,7 +28,13 @@ export default function HeroSlider() {
           />
         </div>
         <div>
-          <h3>2</h3>
+          <img
+            height={500}
+            width="100%"
+            style={{ objectFit: "cover" }}
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
+            alt=""
+          />
         </div>
         <div>
           <img
@@ -40,7 +46,13 @@ export default function HeroSlider() {
           />
         </div>
         <div>
-          <h3>4</h3>
+          <img
+            height={500}
+            width="100%"
+            style={{ objectFit: "cover" }}
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
+            alt=""
+          />
         </div>
         <div>
           <img
