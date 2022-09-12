@@ -22,6 +22,12 @@ const PagesRoutes = [
     layout: "FullLayout",
   },
   {
+    path: "/add-image",
+    component: lazy(() => import("../../view/pages/slider/index")),
+    layout: "FullLayout",
+  },
+
+  {
     path: "/components/components-page",
     component: lazy(() => import("../../view/components/components-page")),
     layout: "VerticalLayout",
