@@ -1,10 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-// import { loadCurrentItem } from "../../../../redux/ecommerce/ecommerceActions";
-
 import { Card, Col, Row } from "antd";
+import { useDispatch } from "react-redux";
 import { loadCurrentItem } from "../../../redux/ecommerce/ecommerceActions";
 
 export default function Item(props) {
@@ -13,7 +11,7 @@ export default function Item(props) {
   const history = useHistory();
 
   const handelClick = () => {
-    history.push(`single-category/1`);
+    history.push(`/single-category/${value.id}`);
     dispatch(loadCurrentItem(value));
   };
 

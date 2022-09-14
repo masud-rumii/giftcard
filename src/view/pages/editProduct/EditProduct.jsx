@@ -5,12 +5,9 @@ import LandingFooter from "../landing/footer";
 import LandingHeader from "../landing/header";
 
 export default function EditProduct() {
-  const handelDelete = (id) => {
-    console.log(id);
-  };
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [id, setId] = useState(null);
+
   const showModal = (id) => {
     setId(id);
     setIsModalOpen(true);
@@ -63,7 +60,6 @@ export default function EditProduct() {
       render: (_, record) => (
         <Space size="middle">
           <a onClick={() => showModal(record.id)}>Edit {record.name}</a>
-          <a>Delete</a>
         </Space>
       ),
     },

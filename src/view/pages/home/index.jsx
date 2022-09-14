@@ -1,5 +1,5 @@
 import { Col, Row } from "antd";
-import { BookSaved, BoxSearch, Gift, MoneySend } from "iconsax-react";
+import { MoneySend } from "iconsax-react";
 import React from "react";
 import { useSelector } from "react-redux";
 import LandingFooter from "../landing/footer";
@@ -9,6 +9,19 @@ import HeroSlider from "./HeroSlider";
 import Item from "./Item";
 export default function Category() {
   const products = useSelector((state) => state.ecommerce.products);
+
+  const arr = [
+    {
+      id: 1,
+      title: "Mobile Top Up",
+    },
+    {
+      id: 2,
+      title: "Data Top Up",
+    },
+    { id: 3, title: "Bills Payment" },
+    { id: 4, title: "E-Gift Voucher" },
+  ];
 
   return (
     <Row gutter={32} className="hp-ecommerce-app">
@@ -28,49 +41,20 @@ export default function Category() {
 
           <section className="hp-landing-container hp-py-32">
             <Row gutter={24}>
-              <CategoryCard
-                title="Airtime | Data | Bundles"
-                icon={
-                  <MoneySend
-                    size="24"
-                    variant="Bold"
-                    className="hp-text-color-black-bg hp-text-color-dark-0"
-                  />
-                }
-              />
-
-              <CategoryCard
-                title="Gift card"
-                icon={
-                  <Gift
-                    size="24"
-                    variant="Bold"
-                    className="hp-text-color-black-bg hp-text-color-dark-0"
-                  />
-                }
-              />
-
-              <CategoryCard
-                title="Utilities"
-                icon={
-                  <BoxSearch
-                    size="24"
-                    variant="Bold"
-                    className="hp-text-color-black-bg hp-text-color-dark-0"
-                  />
-                }
-              />
-
-              <CategoryCard
-                title="Education"
-                icon={
-                  <BookSaved
-                    size="24"
-                    variant="Bold"
-                    className="hp-text-color-black-bg hp-text-color-dark-0"
-                  />
-                }
-              />
+              {arr.map((item) => (
+                <CategoryCard
+                  title={item.title}
+                  key={item.id}
+                  id={item.id}
+                  icon={
+                    <MoneySend
+                      size="24"
+                      variant="Bold"
+                      className="hp-text-color-black-bg hp-text-color-dark-0"
+                    />
+                  }
+                />
+              ))}
             </Row>
           </section>
           <LandingFooter />
