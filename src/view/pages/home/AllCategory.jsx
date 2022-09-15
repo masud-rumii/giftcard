@@ -8,7 +8,7 @@ export default function AllCategory() {
 
   useEffect(() => {
     axios
-      .get("http://192.168.68.121:8010/api/get-all-categories")
+      .get("http://192.168.68.121:8010/api/get-all-service")
       .then(({ data }) => setAllCategories(data?.data))
       .catch((err) => console.log(err));
   }, []);
