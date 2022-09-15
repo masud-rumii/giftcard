@@ -15,6 +15,7 @@ export default function Sidebar() {
 
   const [CountryName, setCountryName] = useState(0);
   const [valueTags, setValueTags] = useState(0);
+  const [isLoading, setLoading] = useState(false);
   const priceMinValue = 0;
   const priceMaxValue = 500;
   const [priceMin, setPriceMin] = useState(priceMinValue);
@@ -35,10 +36,18 @@ export default function Sidebar() {
   };
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get("http://192.168.68.121:8010/api/get-all-countries")
-      .then(({ data }) => setCountries(data?.data))
-      .catch((err) => console.log(err));
+      .then(({ data }) => {
+        setLoading(false);
+        setCountries(data?.data);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -66,23 +75,27 @@ export default function Sidebar() {
             showArrow={false}
             extra={genExtra()}
           >
-            <Radio.Group onChange={onCountryChange} value={CountryName}>
-              {countries?.map((country) => (
-                <Row className="hp-mt-16">
-                  <Col span={24}>
-                    <Row align="middle" justify="space-between">
-                      <Radio value={country.code}>{country.name}</Radio>
-                    </Row>
-                  </Col>
-                </Row>
-              ))}
-            </Radio.Group>
+            {!isLoading ? (
+              <Radio.Group onChange={onCountryChange} value={CountryName}>
+                {countries?.map((country) => (
+                  <Row className="hp-mt-16">
+                    <Col span={24}>
+                      <Row align="middle" justify="space-between">
+                        <Radio value={country.code}>{country.name}</Radio>
+                      </Row>
+                    </Col>
+                  </Row>
+                ))}
+              </Radio.Group>
+            ) : (
+              "Loading..."
+            )}
           </Panel>
         </Collapse>
 
         <Divider />
 
-        <Collapse defaultActiveKey={1}>
+        <Collapse>
           <Panel
             header={
               <h5 className="hp-mb-0 hp-text-color-black-80 hp-text-color-dark-30">
