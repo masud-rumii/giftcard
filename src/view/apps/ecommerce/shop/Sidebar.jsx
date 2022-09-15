@@ -41,8 +41,6 @@ export default function Sidebar() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(countries);
-
   return (
     <Col flex="0 0 270px" className="hp-ecommerce-app-sidebar">
       <Row className="hp-border-radius hp-overflow-hidden hp-border-1 hp-border-color-black-40 hp-border-color-dark-80 hp-bg-color-black-0 hp-bg-color-dark-100 hp-px-24 hp-py-16">
