@@ -32,7 +32,7 @@ export default function LandingHeader() {
       </Menu.Item>
 
       <Menu.Item key={2} className="hp-border-radius">
-        <a href="#">Pricing</a>
+        <Link to="/edit-product">Edit Product</Link>
       </Menu.Item>
     </>
   );
