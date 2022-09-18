@@ -13,6 +13,8 @@
     "instantsearch",
     "reduxjs",
     "reqwest",
+    "sohcitel",
+    "tanstack",
     "timegrid"
   ]
 }

@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Button, Col, Collapse, Divider, Radio, Row, Slider } from "antd";
-import axios from "axios";
 import { RiArrowRightSLine } from "react-icons/ri";
+import useGetAllCountries from "../../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
 
 const { Panel } = Collapse;
 
 export default function Sidebar() {
-  // Collapse
   const genExtra = () => (
     <RiArrowRightSLine size={24} className="hp-collapse-arrow hp-text-color-black-60" />
   );
 
+  const { data: countries, isLoading } = useGetAllCountries();
   const [CountryName, setCountryName] = useState(0);
   const [valueTags, setValueTags] = useState(0);
-  const [isLoading, setLoading] = useState(false);
+
   const priceMinValue = 0;
   const priceMaxValue = 500;
   const [priceMin, setPriceMin] = useState(priceMinValue);
   const [priceMax, setPriceMax] = useState(priceMaxValue);
-  const [countries, setCountries] = useState([]);
 
   const priceOnChange = (value) => {
     setPriceMin(value[0]);
@@ -34,21 +33,6 @@ export default function Sidebar() {
   const onChangeTags = (e) => {
     setValueTags(e.target.value);
   };
-
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get("http://192.168.68.121:8010/api/get-all-countries")
-      .then(({ data }) => {
-        setLoading(false);
-        setCountries(data?.data);
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err);
-      })
-      .finally(() => setLoading(false));
-  }, []);
 
   return (
     <Col flex="0 0 270px" className="hp-ecommerce-app-sidebar">
@@ -77,8 +61,8 @@ export default function Sidebar() {
           >
             {!isLoading ? (
               <Radio.Group onChange={onCountryChange} value={CountryName}>
-                {countries?.map((country) => (
-                  <Row className="hp-mt-16">
+                {countries?.data?.data?.map((country, idx) => (
+                  <Row className="hp-mt-16" key={idx}>
                     <Col span={24}>
                       <Row align="middle" justify="space-between">
                         <Radio value={country.code}>{country.name}</Radio>

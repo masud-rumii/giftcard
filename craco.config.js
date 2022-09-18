@@ -6,9 +6,7 @@ module.exports = {
       plugin: CracoLessPlugin,
       options: {
         modifyVars: {
-          hack: `true;@import "${require.resolve(
-            "./src/assets/less/yoda-theme.less"
-          )}";`,
+          hack: `true;@import "${require.resolve("./src/assets/less/yoda-theme.less")}";`,
         },
         javascriptEnabled: true,
       },
