@@ -8,7 +8,7 @@ import Product from "./Product";
 import ProductLarge from "./ProductLarge";
 import Sidebar from "./Sidebar";
 
-export default function Shop() {
+export default function Shop({ id }) {
   const [productListToggle, setProductListToggle] = useState(false);
 
   // Redux
@@ -97,10 +97,10 @@ export default function Shop() {
             key="left"
             className="hp-ecommerce-app-sidebar-mobile"
           >
-            <Sidebar />
+            <Sidebar id={id} />
           </Drawer>
 
-          <Sidebar />
+          <Sidebar id={id} />
 
           <Col flex="1 0 0" className="hp-ecommerce-app-content">
             <Header

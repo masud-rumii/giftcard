@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 import { Button, Col, Collapse, Divider, Radio, Row, Slider } from "antd";
+import React, { useState } from "react";
 import { RiArrowRightSLine } from "react-icons/ri";
+import useGetAllCategories from "../../../hooks/rq/sohcitelCommunicator/useGetAllCategories";
 import useGetAllCountries from "../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
-// import useGetAllCountries from "../../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
 
 const { Panel } = Collapse;
 
-export default function Sidebar() {
+export default function Sidebar({ id }) {
   const genExtra = () => (
     <RiArrowRightSLine size={24} className="hp-collapse-arrow hp-text-color-black-60" />
   );
 
   const { data: countries, isLoading } = useGetAllCountries();
+  const { data: allCategories, isLoading: categoryLoading } = useGetAllCategories(id);
+
+  const defaultCategoryId = allCategories?.data?.data[0]?.id;
+
   const [CountryName, setCountryName] = useState(0);
+  const [categoryId, setCategoryId] = useState(defaultCategoryId);
   const [valueTags, setValueTags] = useState(0);
 
   const priceMinValue = 0;
@@ -29,6 +32,10 @@ export default function Sidebar() {
 
   const onCountryChange = (e) => {
     setCountryName(e.target.value);
+  };
+
+  const onCategoryChange = (e) => {
+    setCategoryId(e.target.value);
   };
 
   const onChangeTags = (e) => {
@@ -91,52 +98,25 @@ export default function Sidebar() {
             showArrow={false}
             extra={genExtra()}
           >
-            <Row className="hp-mt-16">
-              <Col span={24}>
-                <Link
-                  to="#"
-                  className="hp-badge-text hp-d-block hp-text-color-black-80 hp-text-color-dark-30"
-                >
-                  SLR Cameras
-                </Link>
-              </Col>
-
-              <Col span={24} className="hp-mt-10">
-                <Link
-                  to="#"
-                  className="hp-badge-text hp-d-block hp-text-color-black-80 hp-text-color-dark-30"
-                >
-                  Digital Cameras
-                </Link>
-              </Col>
-
-              <Col span={24} className="hp-mt-10">
-                <Link
-                  to="#"
-                  className="hp-badge-text hp-d-block hp-text-color-black-80 hp-text-color-dark-30"
-                >
-                  Mirrorless Compact Cameras
-                </Link>
-              </Col>
-
-              <Col span={24} className="hp-mt-10">
-                <Link
-                  to="#"
-                  className="hp-badge-text hp-d-block hp-text-color-black-80 hp-text-color-dark-30"
-                >
-                  Video Cameras
-                </Link>
-              </Col>
-
-              <Col span={24} className="hp-mt-10">
-                <Link
-                  to="#"
-                  className="hp-badge-text hp-d-block hp-text-color-black-80 hp-text-color-dark-30"
-                >
-                  Action Cameras
-                </Link>
-              </Col>
-            </Row>
+            {!categoryLoading ? (
+              <Radio.Group
+                onChange={onCategoryChange}
+                value={categoryId}
+                defaultValue={defaultCategoryId}
+              >
+                {allCategories?.data?.data?.map((category, idx) => (
+                  <Row className="hp-mt-16" key={idx}>
+                    <Col span={24}>
+                      <Row align="middle" justify="space-between">
+                        <Radio value={category.id}>{category.name}</Radio>
+                      </Row>
+                    </Col>
+                  </Row>
+                ))}
+              </Radio.Group>
+            ) : (
+              "Loading..."
+            )}
           </Panel>
         </Collapse>
 

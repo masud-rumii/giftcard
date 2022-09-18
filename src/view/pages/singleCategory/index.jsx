@@ -15,7 +15,7 @@ export default function Home() {
           <LandingHeader />
           <section className="hp-landing-container hp-landing-hero hp-pt-16">
             <div className="hp-px-sm-8 hp-px-16">
-              <Shop />
+              <Shop id={id} />
             </div>
           </section>
           <LandingFooter />
