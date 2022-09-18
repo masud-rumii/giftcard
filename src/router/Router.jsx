@@ -125,7 +125,6 @@ export default function Router() {
                     path={route.path}
                     exact={route.exact === true}
                     render={(props) => {
-                      console.log(route);
                       return (
                         <Suspense fallback={null}>
                           {route.layout === "FullLayout" ? (
