@@ -14,6 +14,7 @@ export default function Shop({ id }) {
   // Redux
   const products = useSelector((state) => state.ecommerce.products);
   const searchValue = useSelector((state) => state.ecommerce.searchValue);
+  const { data: allOperator } = useSelector((state) => state.operator);
   const priceFilterValue = useSelector((state) => state.ecommerce.priceFilterValue);
 
   const productsFilters = products.filter((item) => {

@@ -1,8 +1,10 @@
 import { Button, Col, Collapse, Divider, Radio, Row, Slider } from "antd";
 import React, { useState } from "react";
 import { RiArrowRightSLine } from "react-icons/ri";
+import { useDispatch } from "react-redux";
 import useGetAllCategories from "../../../hooks/rq/sohcitelCommunicator/useGetAllCategories";
 import useGetAllCountries from "../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
+import useGetAllOperator from "../../../hooks/rq/sohcitelCommunicator/useGetAllOperator";
 
 const { Panel } = Collapse;
 
@@ -13,12 +15,27 @@ export default function Sidebar({ id }) {
 
   const { data: countries, isLoading } = useGetAllCountries();
   const { data: allCategories, isLoading: categoryLoading } = useGetAllCategories(id);
-
+  const dispatch = useDispatch();
   const defaultCategoryId = allCategories?.data?.data[0]?.id;
 
   const [CountryName, setCountryName] = useState(0);
   const [categoryId, setCategoryId] = useState(defaultCategoryId);
   const [valueTags, setValueTags] = useState(0);
+  const { data: allOperator, isLoading: operatorLoading } = useGetAllOperator({
+    serviceId: id,
+    categoryId: defaultCategoryId,
+    countryId: CountryName,
+  });
+
+  // useEffect(async () => {
+  //   await !operatorLoading;
+  //   if (!operatorLoading) {
+  //     console.log("operatorLoading", operatorLoading);
+  //     console.log(allOperator?.data?.data);
+  //     const data = await allOperator?.data?.data;
+  //     await dispatch(data);
+  //   }
+  // }, [operatorLoading]);
 
   const priceMinValue = 0;
   const priceMaxValue = 500;
