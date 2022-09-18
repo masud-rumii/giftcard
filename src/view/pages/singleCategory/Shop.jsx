@@ -17,6 +17,10 @@ export default function Shop({ id }) {
   const { data: allOperator } = useSelector((state) => state.operator);
   const priceFilterValue = useSelector((state) => state.ecommerce.priceFilterValue);
 
+  console.log(allOperator);
+
+  console.log(products);
+
   const productsFilters = products.filter((item) => {
     return item.title.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1;
   });
@@ -112,13 +116,13 @@ export default function Shop({ id }) {
             {!productListToggle ? (
               <List
                 pagination={pagiCheck}
-                dataSource={productsFilters}
+                dataSource={allOperator}
                 renderItem={(value) => <Product value={value} />}
               />
             ) : (
               <List
                 pagination={pagiCheckLarge}
-                dataSource={productsFilters}
+                dataSource={allOperator}
                 renderItem={(value) => <ProductLarge value={value} />}
               />
             )}

@@ -1,10 +1,11 @@
 import { Button, Col, Collapse, Divider, Radio, Row, Slider } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import useGetAllCategories from "../../../hooks/rq/sohcitelCommunicator/useGetAllCategories";
 import useGetAllCountries from "../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
 import useGetAllOperator from "../../../hooks/rq/sohcitelCommunicator/useGetAllOperator";
+import { allOperators } from "../../../redux/operator/operatorActions";
 
 const { Panel } = Collapse;
 
@@ -27,15 +28,14 @@ export default function Sidebar({ id }) {
     countryId: CountryName,
   });
 
-  // useEffect(async () => {
-  //   await !operatorLoading;
-  //   if (!operatorLoading) {
-  //     console.log("operatorLoading", operatorLoading);
-  //     console.log(allOperator?.data?.data);
-  //     const data = await allOperator?.data?.data;
-  //     await dispatch(data);
-  //   }
-  // }, [operatorLoading]);
+  useEffect(async () => {
+    if (!operatorLoading) {
+      console.log("operatorLoading", operatorLoading);
+      console.log(allOperator?.data?.data);
+      const data = allOperator?.data?.data;
+      dispatch(allOperators(data));
+    }
+  }, [operatorLoading]);
 
   const priceMinValue = 0;
   const priceMaxValue = 500;
