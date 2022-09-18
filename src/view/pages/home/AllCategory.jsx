@@ -1,14 +1,14 @@
 import { Row } from "antd";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axiosInstance from "../../../configs/axios";
 import CategoryCard from "./CategoryCard";
 
 export default function AllCategory() {
   const [allCategories, setAllCategories] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://192.168.68.121:8010/api/get-all-service")
+    axiosInstance
+      .get("/get-all-service")
       .then(({ data }) => setAllCategories(data?.data))
       .catch((err) => console.log(err));
   }, []);
