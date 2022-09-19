@@ -1,7 +1,8 @@
-import { ALL_OPERATORS } from "./operatorType";
+import { ALL_OPERATORS, OPERATOR_LOADING } from "./operatorType";
 
 const initialState = {
   data: [],
+  isLoading: false,
 };
 
 const operatorReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const operatorReducer = (state = initialState, action) => {
       return {
         ...state,
         data: action.payload,
+      };
+    case OPERATOR_LOADING:
+      return {
+        ...state,
+        isLoading: action.payload,
       };
 
     default:

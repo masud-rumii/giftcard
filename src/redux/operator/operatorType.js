@@ -1,1 +1,2 @@
 export const ALL_OPERATORS = "ALL_OPERATORS";
+export const OPERATOR_LOADING = "OPERATOR_LOADING";

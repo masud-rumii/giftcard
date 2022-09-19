@@ -21,7 +21,7 @@ const fetchAllOperator = ({ serviceId, categoryId, countryId }) => {
 
 export default function useGetAllOperator({ serviceId, categoryId, countryId }) {
   return useQuery(
-    ["fetchAllOperator"],
+    ["fetchAllOperator", serviceId, categoryId, countryId],
     () => fetchAllOperator({ serviceId, categoryId, countryId }),
     {
       enabled: !!serviceId || !!categoryId || !!countryId,

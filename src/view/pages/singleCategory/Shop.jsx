@@ -14,12 +14,8 @@ export default function Shop({ id }) {
   // Redux
   const products = useSelector((state) => state.ecommerce.products);
   const searchValue = useSelector((state) => state.ecommerce.searchValue);
-  const { data: allOperator } = useSelector((state) => state.operator);
+  const { data: allOperator, isLoading } = useSelector((state) => state.operator);
   const priceFilterValue = useSelector((state) => state.ecommerce.priceFilterValue);
-
-  console.log(allOperator);
-
-  console.log(products);
 
   const productsFilters = products.filter((item) => {
     return item.title.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1;
@@ -115,12 +111,14 @@ export default function Shop({ id }) {
 
             {!productListToggle ? (
               <List
+                loading={isLoading}
                 pagination={pagiCheck}
                 dataSource={allOperator}
                 renderItem={(value) => <Product value={value} />}
               />
             ) : (
               <List
+                loading={isLoading}
                 pagination={pagiCheckLarge}
                 dataSource={allOperator}
                 renderItem={(value) => <ProductLarge value={value} />}
