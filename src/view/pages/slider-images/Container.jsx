@@ -26,7 +26,13 @@ export default function Container() {
           <Col md={15} span={24}>
             <Row justify="end" align="middle" gutter={[16]} className="hp-pt-24">
               <Col>
-                <Button block ghost className="hp-mt-sm-16" type="primary" onClick={showModal}>
+                <Button
+                  block
+                  ghost
+                  className="hp-mt-sm-16"
+                  type="primary"
+                  onClick={showModal}
+                >
                   Add New Image
                 </Button>
               </Col>
@@ -35,11 +41,7 @@ export default function Container() {
         </Row>
       </div>
 
-      <Card className="hp-contact-card hp-mb-32">
-        <Col className="hp-contact-card hp-mt-32">
-          <ImageTable />
-        </Col>
-      </Card>
+      <ImageTable />
 
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
         <ImageModal />

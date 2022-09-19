@@ -8,13 +8,13 @@ const main = [
     id: "operators",
     title: "Operators",
     icon: <Health size={18} />,
-    navLink: "/edit-product",
+    navLink: "/operators",
   },
   {
-    id: "add-images",
-    title: "Add Images",
+    id: "slider-images",
+    title: "Slider Images",
     icon: <Setting size={18} />,
-    navLink: "/add-image",
+    navLink: "/slider-images",
   },
 ];
 
