@@ -19,7 +19,7 @@ export default function Container() {
   };
 
   return (
-    <div className="hp-landing-container hp-pb-8">
+    <div className="hp-landing-container hp-pb-4">
       <div className="hp-my-32">
         <Row gutter={[32, 32]} justify="space-between">
           <div></div>

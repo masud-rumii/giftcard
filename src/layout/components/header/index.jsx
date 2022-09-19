@@ -2,14 +2,12 @@ import React, { useRef, useState } from "react";
 
 import { Layout, Button, Row, Col } from "antd";
 import { RiCloseLine, RiMenuFill } from "react-icons/ri";
-import { SearchNormal1 } from 'iconsax-react';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { SearchNormal1 } from "iconsax-react";
+import { motion } from "framer-motion/dist/framer-motion";
 
-import HeaderSearch from './HeaderSearch';
+import HeaderSearch from "./HeaderSearch";
 import HeaderUser from "./HeaderUser";
 import HeaderNotifications from "./HeaderNotifications";
-import HeaderLanguages from "./HeaderLanguages";
-import HeaderCart from "./HeaderCart";
 import HeaderText from "./HeaderText";
 
 const { Header } = Layout;
@@ -30,14 +28,14 @@ export default function MenuHeader(props) {
   setTimeout(() => setSearchActive(searchHeader), 100);
 
   const searchClick = () => {
-    setSearchHeader(true)
+    setSearchHeader(true);
 
     setTimeout(() => {
       inputFocusRef.current.focus({
-        cursor: 'start',
+        cursor: "start",
       });
     }, 200);
-  }
+  };
 
   // Mobile Sidebar
   const showDrawer = () => {
@@ -48,11 +46,7 @@ export default function MenuHeader(props) {
   // Children
   const headerChildren = () => {
     return (
-      <Row
-        className="hp-w-100 hp-position-relative"
-        align="middle"
-        justify="space-between"
-      >
+      <Row className="hp-w-100 hp-position-relative" align="middle" justify="space-between">
         <Col className="hp-mobile-sidebar-button hp-mr-24">
           <Button
             type="none"
@@ -68,62 +62,18 @@ export default function MenuHeader(props) {
           />
         </Col>
 
-        <Col
-          flex="1"
-          style={{ display: !searchHeader ? 'none' : 'block' }}
-          className={`hp-mr-md-0 hp-mr-16 hp-pr-0 hp-header-search ${searchActive && "hp-header-search-active"}`}
-        >
-          <HeaderSearch inputFocusProp={inputFocusProp} setSearchHeader={setSearchHeader} />
-        </Col>
-
-        {!searchHeader && (
-          <HeaderText />
-        )}
+        {!searchHeader && <HeaderText />}
 
         <Col>
           <Row align="middle">
-            <HeaderLanguages />
-
-            <Col className="hp-d-flex-center">
-              {!searchHeader ? (
-                <Button
-                  ghost
-                  type="primary"
-                  className="hp-border-none hp-hover-bg-black-10 hp-hover-bg-dark-100"
-                  icon={
-                    <SearchNormal1
-                      set="curved"
-                      className="hp-text-color-black-80 hp-text-color-dark-30"
-                    />
-                  }
-                  onClick={() => searchClick()}
-                />
-              ) : (
-                <Button
-                  ghost
-                  type="primary"
-                  className="hp-border-none hp-hover-bg-black-10 hp-hover-bg-dark-100"
-                  icon={
-                    <RiCloseLine
-                      size={24}
-                      className="hp-text-color-black-80 hp-text-color-dark-30"
-                    />
-                  }
-                  onClick={() => setSearchHeader(false)}
-                />
-              )}
-            </Col>
-
             <HeaderNotifications />
-
-            <HeaderCart />
 
             <HeaderUser />
           </Row>
         </Col>
       </Row>
-    )
-  }
+    );
+  };
 
   return (
     <Header>
@@ -141,4 +91,4 @@ export default function MenuHeader(props) {
       </Row>
     </Header>
   );
-};
+}
