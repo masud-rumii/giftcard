@@ -13,6 +13,7 @@ export default function Login() {
   const handelFinish = ({ userName, password }) => {
     if (userName === "a" && password === "a") {
       localStorage.setItem("userInfo", "loggedIn");
+      window.location.href = "/operators";
     }
   };
 
