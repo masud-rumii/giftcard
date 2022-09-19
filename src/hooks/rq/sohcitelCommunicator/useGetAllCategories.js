@@ -8,5 +8,5 @@ const fetchAllCategories = (id) => {
 };
 
 export default function useGetAllCategories(id) {
-  return useQuery(["fetchAllCategories"], () => fetchAllCategories(id));
+  return useQuery(["fetchAllCategories", id], () => fetchAllCategories(id));
 }
