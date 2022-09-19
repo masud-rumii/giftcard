@@ -34,7 +34,7 @@ const PagesRoutes = [
   {
     path: "/add-image",
     component: lazy(() => import("../../view/pages/slider/index")),
-    layout: "FullLayout",
+    layout: "VerticalLayout",
   },
 
   {
@@ -432,9 +432,7 @@ const PagesRoutes = [
   },
   {
     path: "/pages/authentication-modern/recover-password",
-    component: lazy(() =>
-      import("../../view/pages/authentication-modern/recover-password")
-    ),
+    component: lazy(() => import("../../view/pages/authentication-modern/recover-password")),
     layout: "FullLayout",
   },
   {
@@ -444,9 +442,7 @@ const PagesRoutes = [
   },
   {
     path: "/pages/authentication-modern/reset-password",
-    component: lazy(() =>
-      import("../../view/pages/authentication-modern/reset-password")
-    ),
+    component: lazy(() => import("../../view/pages/authentication-modern/reset-password")),
     layout: "FullLayout",
   },
   {

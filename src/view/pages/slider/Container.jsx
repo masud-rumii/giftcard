@@ -19,22 +19,14 @@ export default function Container() {
   };
 
   return (
-    <div className="hp-landing-container">
+    <div className="hp-landing-container hp-pb-8">
       <div className="hp-my-32">
         <Row gutter={[32, 32]} justify="space-between">
           <div></div>
           <Col md={15} span={24}>
-            <Row justify="end" align="middle" gutter={[16]}>
-              <Col xs={24} md={12} xl={8}></Col>
-
+            <Row justify="end" align="middle" gutter={[16]} className="hp-pt-24">
               <Col>
-                <Button
-                  block
-                  ghost
-                  className="hp-mt-sm-16"
-                  type="primary"
-                  onClick={showModal}
-                >
+                <Button block ghost className="hp-mt-sm-16" type="primary" onClick={showModal}>
                   Add New Image
                 </Button>
               </Col>

@@ -8,9 +8,7 @@ export default function Contact() {
     <Row gutter={32} className="hp-ecommerce-app">
       <Col span={24}>
         <div className="hp-landing hp-bg-black-0 hp-bg-dark-90">
-          <LandingHeader />
           <Container />
-          <LandingFooter />
         </div>
       </Col>
     </Row>
