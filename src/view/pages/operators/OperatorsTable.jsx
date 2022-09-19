@@ -27,33 +27,30 @@ export default function OperatorsTable() {
       dataIndex: "id",
       key: "id",
       width: "5%",
+      render: (_text, _record, index) => index + 1,
     },
     {
-      title: "subTitle",
-      dataIndex: "subTitle",
-      key: "subTitle",
-    },
-
-    {
-      title: "title",
+      title: "TITLE",
       dataIndex: "title",
       key: "title",
     },
-
     {
-      title: "price",
+      title: "SUBTITLE",
+      dataIndex: "subTitle",
+      key: "subTitle",
+    },
+    {
+      title: "PRICE",
       dataIndex: "price",
       key: "price",
     },
-
     {
-      title: "rate",
+      title: "RATE",
       dataIndex: "rate",
       key: "rate",
     },
-
     {
-      title: "Action",
+      title: "ACTIONS",
       key: "action",
       render: (_, record) => (
         <Space size="middle">

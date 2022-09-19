@@ -26,14 +26,6 @@ export default function LandingHeader() {
       <Menu.Item key={0} className="hp-border-radius">
         <Link to="/single-category/1">Category</Link>
       </Menu.Item>
-
-      <Menu.Item key={1} className="hp-border-radius">
-        <Link to="/add-image">add image</Link>
-      </Menu.Item>
-
-      <Menu.Item key={2} className="hp-border-radius">
-        <Link to="/edit-product">Edit Product</Link>
-      </Menu.Item>
     </>
   );
 
