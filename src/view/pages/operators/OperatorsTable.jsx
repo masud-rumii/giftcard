@@ -1,4 +1,4 @@
-import { Modal, Space, Table } from "antd";
+import { Button, Form, Input, Modal, Space, Table } from "antd";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -60,18 +60,70 @@ export default function OperatorsTable() {
     },
   ];
 
+  const onFinish = (values) => {
+    const payload = {
+      operator_id: id,
+      description: values.description,
+    };
+    console.log("Success:", payload);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
+  const { TextArea } = Input;
+
   return (
     <>
       <Table columns={columns} dataSource={products} rowKey="id" />
       <Modal
-        title="Basic Modal"
+        title="Edit Product"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
-        <p>ID {id}...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Form
+          name="basic"
+          layout="vertical"
+          labelCol={{
+            span: 8,
+          }}
+          wrapperCol={{
+            span: 16,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <Form.Item
+            label="Description"
+            name="description"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Description!",
+              },
+            ]}
+          >
+            <TextArea rows={4} />
+          </Form.Item>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
       </Modal>
     </>
   );

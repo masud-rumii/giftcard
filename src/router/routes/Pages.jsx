@@ -11,11 +11,6 @@ const PagesRoutes = [
     component: lazy(() => import("../../view/pages/operators")),
     layout: "VerticalLayout",
   },
-  // {
-  //   path: "/operator-details/:pdId",
-  //   component: lazy(() => import("../../view/pages/singleCategory/Details")),
-  //   layout: "FullLayout",
-  // },
   {
     path: "/product/:id",
     component: lazy(() => import("../../view/apps/ecommerce/detail/Detail")),
@@ -476,56 +471,56 @@ const PagesRoutes = [
     component: lazy(() => import("../../view/pages/lock-screen/welcome")),
     layout: "FullLayout",
   },
-  // {
-  //   path: "/pages/password-is-changed",
-  //   component: lazy(() => import("../../view/pages/lock-screen/password-is-changed")),
-  //   layout: "FullLayout",
-  // },
-  // {
-  //   path: "/pages/deactivated",
-  //   component: lazy(() => import("../../view/pages/lock-screen/deactivated")),
-  //   layout: "FullLayout",
-  // },
-  // {
-  //   path: "/pages/lock",
-  //   component: lazy(() => import("../../view/pages/lock-screen/lock")),
-  //   layout: "FullLayout",
-  // },
-  // {
-  //   path: "/pages/pricing",
-  //   component: lazy(() => import("../../view/pages/pricing")),
-  //   layout: "VerticalLayout",
-  // },
-  // {
-  //   path: "/pages/profile/personel-information",
-  //   component: lazy(() => import("../../view/pages/profile")),
-  //   layout: "VerticalLayout",
-  // },
-  // {
-  //   path: "/pages/profile/notifications",
-  //   component: lazy(() => import("../../view/pages/profile")),
-  //   layout: "VerticalLayout",
-  // },
-  // {
-  //   path: "/pages/profile/activity",
-  //   component: lazy(() => import("../../view/pages/profile")),
-  //   layout: "VerticalLayout",
-  // },
-  // {
-  //   path: "/pages/profile/security",
-  //   component: lazy(() => import("../../view/pages/profile")),
-  //   layout: "VerticalLayout",
-  // },
-  // {
-  //   path: "/pages/profile/password-change",
-  //   component: lazy(() => import("../../view/pages/profile")),
-  //   layout: "VerticalLayout",
-  // },
-  // {
-  //   path: "/pages/profile/connect-with-social",
-  //   component: lazy(() => import("../../view/pages/profile")),
-  //   layout: "VerticalLayout",
-  // },
+  {
+    path: "/pages/password-is-changed",
+    component: lazy(() => import("../../view/pages/lock-screen/password-is-changed")),
+    layout: "FullLayout",
+  },
+  {
+    path: "/pages/deactivated",
+    component: lazy(() => import("../../view/pages/lock-screen/deactivated")),
+    layout: "FullLayout",
+  },
+  {
+    path: "/pages/lock",
+    component: lazy(() => import("../../view/pages/lock-screen/lock")),
+    layout: "FullLayout",
+  },
+  {
+    path: "/pages/pricing",
+    component: lazy(() => import("../../view/pages/pricing")),
+    layout: "VerticalLayout",
+  },
+  {
+    path: "/pages/profile/personel-information",
+    component: lazy(() => import("../../view/pages/profile")),
+    layout: "VerticalLayout",
+  },
+  {
+    path: "/pages/profile/notifications",
+    component: lazy(() => import("../../view/pages/profile")),
+    layout: "VerticalLayout",
+  },
+  {
+    path: "/pages/profile/activity",
+    component: lazy(() => import("../../view/pages/profile")),
+    layout: "VerticalLayout",
+  },
+  {
+    path: "/pages/profile/security",
+    component: lazy(() => import("../../view/pages/profile")),
+    layout: "VerticalLayout",
+  },
+  {
+    path: "/pages/profile/password-change",
+    component: lazy(() => import("../../view/pages/profile")),
+    layout: "VerticalLayout",
+  },
+  {
+    path: "/pages/profile/connect-with-social",
+    component: lazy(() => import("../../view/pages/profile")),
+    layout: "VerticalLayout",
+  },
 ];
 
 export default PagesRoutes;

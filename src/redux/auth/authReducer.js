@@ -1,7 +1,7 @@
 import * as authTypes from "./authTypes";
 
 const initialState = {
-  userInfo: JSON.parse(localStorage.getItem("userInfo")),
+  userInfo: localStorage.getItem("userInfo"),
   isLoggedIn: localStorage.getItem("userInfo") ? true : false,
 };
 
