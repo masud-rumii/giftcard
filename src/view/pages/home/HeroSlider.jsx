@@ -25,7 +25,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="hp-my-32">
+    <section>
       <Slider {...settings}>
         {sliderImage.map((image) => {
           return (

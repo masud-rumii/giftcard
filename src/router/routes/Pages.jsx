@@ -12,9 +12,9 @@ const PagesRoutes = [
     layout: "FullLayout",
   },
   {
-    path: "/edit-product",
-    component: lazy(() => import("../../view/pages/editProduct/EditProduct")),
-    layout: "FullLayout",
+    path: "/operators",
+    component: lazy(() => import("../../view/pages/operators")),
+    layout: "VerticalLayout",
   },
   {
     path: "/home",
@@ -36,6 +36,14 @@ const PagesRoutes = [
     component: lazy(() => import("../../view/pages/slider/index")),
     layout: "VerticalLayout",
   },
+
+  {
+    path: "/login",
+    component: lazy(() => import("../../view/pages/auth/login")),
+    layout: "FullLayout",
+  },
+
+  // ========================================================================================
 
   {
     path: "/components/components-page",
@@ -404,45 +412,19 @@ const PagesRoutes = [
     component: lazy(() => import("../../view/pages/landing")),
     layout: "FullLayout",
   },
-
   {
-    path: "/pages/authentication/login",
-    component: lazy(() => import("../../view/pages/authentication/login")),
+    path: "/recover-password",
+    component: lazy(() => import("../../view/pages/auth/recover-password")),
     layout: "FullLayout",
   },
   {
-    path: "/pages/authentication/recover-password",
-    component: lazy(() => import("../../view/pages/authentication/recover-password")),
+    path: "/register",
+    component: lazy(() => import("../../view/pages/auth/register")),
     layout: "FullLayout",
   },
   {
-    path: "/pages/authentication/register",
-    component: lazy(() => import("../../view/pages/authentication/register")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/authentication/reset-password",
-    component: lazy(() => import("../../view/pages/authentication/reset-password")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/authentication-modern/login",
-    component: lazy(() => import("../../view/pages/authentication-modern/login")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/authentication-modern/recover-password",
-    component: lazy(() => import("../../view/pages/authentication-modern/recover-password")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/authentication-modern/register",
-    component: lazy(() => import("../../view/pages/authentication-modern/register")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/authentication-modern/reset-password",
-    component: lazy(() => import("../../view/pages/authentication-modern/reset-password")),
+    path: "/reset-password",
+    component: lazy(() => import("../../view/pages/auth/reset-password")),
     layout: "FullLayout",
   },
   {
@@ -510,56 +492,56 @@ const PagesRoutes = [
     component: lazy(() => import("../../view/pages/lock-screen/welcome")),
     layout: "FullLayout",
   },
-  {
-    path: "/pages/password-is-changed",
-    component: lazy(() => import("../../view/pages/lock-screen/password-is-changed")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/deactivated",
-    component: lazy(() => import("../../view/pages/lock-screen/deactivated")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/lock",
-    component: lazy(() => import("../../view/pages/lock-screen/lock")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/pages/pricing",
-    component: lazy(() => import("../../view/pages/pricing")),
-    layout: "VerticalLayout",
-  },
-  {
-    path: "/pages/profile/personel-information",
-    component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
-  },
-  {
-    path: "/pages/profile/notifications",
-    component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
-  },
-  {
-    path: "/pages/profile/activity",
-    component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
-  },
-  {
-    path: "/pages/profile/security",
-    component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
-  },
-  {
-    path: "/pages/profile/password-change",
-    component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
-  },
-  {
-    path: "/pages/profile/connect-with-social",
-    component: lazy(() => import("../../view/pages/profile")),
-    layout: "VerticalLayout",
-  },
+  // {
+  //   path: "/pages/password-is-changed",
+  //   component: lazy(() => import("../../view/pages/lock-screen/password-is-changed")),
+  //   layout: "FullLayout",
+  // },
+  // {
+  //   path: "/pages/deactivated",
+  //   component: lazy(() => import("../../view/pages/lock-screen/deactivated")),
+  //   layout: "FullLayout",
+  // },
+  // {
+  //   path: "/pages/lock",
+  //   component: lazy(() => import("../../view/pages/lock-screen/lock")),
+  //   layout: "FullLayout",
+  // },
+  // {
+  //   path: "/pages/pricing",
+  //   component: lazy(() => import("../../view/pages/pricing")),
+  //   layout: "VerticalLayout",
+  // },
+  // {
+  //   path: "/pages/profile/personel-information",
+  //   component: lazy(() => import("../../view/pages/profile")),
+  //   layout: "VerticalLayout",
+  // },
+  // {
+  //   path: "/pages/profile/notifications",
+  //   component: lazy(() => import("../../view/pages/profile")),
+  //   layout: "VerticalLayout",
+  // },
+  // {
+  //   path: "/pages/profile/activity",
+  //   component: lazy(() => import("../../view/pages/profile")),
+  //   layout: "VerticalLayout",
+  // },
+  // {
+  //   path: "/pages/profile/security",
+  //   component: lazy(() => import("../../view/pages/profile")),
+  //   layout: "VerticalLayout",
+  // },
+  // {
+  //   path: "/pages/profile/password-change",
+  //   component: lazy(() => import("../../view/pages/profile")),
+  //   layout: "VerticalLayout",
+  // },
+  // {
+  //   path: "/pages/profile/connect-with-social",
+  //   component: lazy(() => import("../../view/pages/profile")),
+  //   layout: "VerticalLayout",
+  // },
 ];
 
 export default PagesRoutes;
