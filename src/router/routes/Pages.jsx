@@ -34,7 +34,7 @@ const PagesRoutes = [
   {
     path: "/add-image",
     component: lazy(() => import("../../view/pages/slider/index")),
-    layout: "FullLayout",
+    layout: "VerticalLayout",
   },
 
   {
