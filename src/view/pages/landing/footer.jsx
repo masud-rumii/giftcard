@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Row, Form, Input } from "antd";
 import FooterImage from "../../../assets/images/pages/landing/footer-bg.png";
+import { Call, Message } from "iconsax-react";
 
 export default function LandingFooter() {
   const onFinish = (values) => {
@@ -68,14 +69,14 @@ export default function LandingFooter() {
                   className="hp-d-block hp-font-weight-400 hp-mt-16"
                   style={{ color: "#4295CF" }}
                 >
-                  +4402071835517
+                  <Call size="18" /> <span>+4402071835517</span>
                 </a>
                 <a
                   href="#"
                   className="hp-d-block hp-font-weight-400 hp-mt-16"
                   style={{ color: "#4295CF" }}
                 >
-                  info@sochitel.com
+                  <Message size="18" /> <span>info@sochitel.com</span>
                 </a>
                 <Button
                   type="primary"
