@@ -2,6 +2,8 @@ import { Row, Spin } from "antd";
 import React from "react";
 import useGetAllServices from "../../../hooks/rq/sohcitelCommunicator/useGetAllService";
 
+import CategoryCard from "./CategoryCard";
+
 export default function AllCategory() {
   const { data: allCategories, isLoading } = useGetAllServices();
 

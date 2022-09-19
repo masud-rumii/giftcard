@@ -3,7 +3,7 @@ import React from "react";
 import { Card, Col } from "antd";
 import { useHistory } from "react-router-dom";
 
-export default function FeatureCard({ title, id }) {
+export default function CategoryCard({ title, id }) {
   const history = useHistory();
 
   return (
