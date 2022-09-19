@@ -243,24 +243,6 @@ export default function Router() {
           }}
         />
 
-        {/* Home Page */}
-        {/* <Route
-          exact
-          path={"/home122"}
-          render={() => {
-            return DefaultLayout == "HorizontalLayout" ? (
-              <Layouts.HorizontalLayout>
-                <Shop />
-              </Layouts.HorizontalLayout>
-            ) : (
-              <Layouts.VerticalLayout>
-                <Shop />
-              </Layouts.VerticalLayout>
-            );
-          }}
-        /> */}
-
-        {/* NotFound */}
         <Route path="*">
           <Error404 />
         </Route>
