@@ -1,19 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { loadCurrentItem } from "../../../redux/ecommerce/ecommerceActions";
-
 import { Card, Col, Row } from "antd";
 
 export default function Product(props) {
   const { value } = props;
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const handelClick = () => {
     history.push(`/product-details/${value.id}`);
-    dispatch(loadCurrentItem(value));
+    localStorage.setItem("operatorDetails", JSON.stringify(value));
   };
 
   return (
