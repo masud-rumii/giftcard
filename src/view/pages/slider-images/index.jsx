@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Col, Row, Modal, Button } from "antd";
 import SliderImageTable from "./SliderImageTable";
-import ImageModal from "./ImageModal";
+import SliderImageModal from "./SliderImageModal";
 
 export default function SliderImages() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,7 +39,7 @@ export default function SliderImages() {
       </Col>
 
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
-        <ImageModal />
+        <SliderImageModal />
       </Modal>
     </Row>
   );
