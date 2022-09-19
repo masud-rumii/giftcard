@@ -5,7 +5,10 @@ import { useDispatch } from "react-redux";
 import useGetAllCategories from "../../../hooks/rq/sohcitelCommunicator/useGetAllCategories";
 import useGetAllCountries from "../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
 import useGetAllOperator from "../../../hooks/rq/sohcitelCommunicator/useGetAllOperator";
-import { allOperators } from "../../../redux/operator/operatorActions";
+import {
+  allOperators,
+  operatorLoadingFunc,
+} from "../../../redux/operator/operatorActions";
 
 const { Panel } = Collapse;
 
@@ -19,23 +22,21 @@ export default function Sidebar({ id }) {
   const dispatch = useDispatch();
   const defaultCategoryId = allCategories?.data?.data[0]?.id;
 
-  const [CountryName, setCountryName] = useState(0);
+  const [CountryName, setCountryName] = useState("");
   const [categoryId, setCategoryId] = useState(defaultCategoryId);
   const [valueTags, setValueTags] = useState(0);
   const { data: allOperator, isLoading: operatorLoading } = useGetAllOperator({
     serviceId: id,
-    categoryId: defaultCategoryId,
+    categoryId: categoryId,
     countryId: CountryName,
   });
+  console.log(operatorLoading);
+  useEffect(() => {
+    const data = allOperator?.data?.data;
 
-  useEffect(async () => {
-    if (!operatorLoading) {
-      console.log("operatorLoading", operatorLoading);
-      console.log(allOperator?.data?.data);
-      const data = allOperator?.data?.data;
-      dispatch(allOperators(data));
-    }
-  }, [operatorLoading]);
+    dispatch(allOperators(data));
+    dispatch(operatorLoadingFunc(operatorLoading));
+  }, [operatorLoading, CountryName, categoryId]);
 
   const priceMinValue = 0;
   const priceMaxValue = 500;
@@ -48,15 +49,18 @@ export default function Sidebar({ id }) {
   };
 
   const onCountryChange = (e) => {
-    setCountryName(e.target.value);
+    setCountryName(() => e.target.value);
+    // queryClient.invalidateQueries(["fetchAllOperator"]);
   };
 
   const onCategoryChange = (e) => {
-    setCategoryId(e.target.value);
+    setCategoryId(() => e.target.value);
+    // queryClient.invalidateQueries(["fetchAllOperator"]);
   };
 
   const onChangeTags = (e) => {
-    setValueTags(e.target.value);
+    setValueTags(() => e.target.value);
+    // queryClient.invalidateQueries(["fetchAllOperator"]);
   };
 
   return (

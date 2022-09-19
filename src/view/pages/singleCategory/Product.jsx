@@ -11,8 +11,6 @@ export default function Product(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log(value);
-
   const handelClick = () => {
     history.push(`/product-details/${value.id}`);
     dispatch(loadCurrentItem(value));
