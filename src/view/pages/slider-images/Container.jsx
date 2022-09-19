@@ -4,25 +4,10 @@ import ImageModal from "./ImageModal";
 import ImageTable from "./ImageTable";
 
 export default function Container() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div className="hp-landing-container hp-pb-8">
+    <div className="hp-landing-container hp-pb-4">
       <div className="hp-my-32">
         <Row gutter={[32, 32]} justify="space-between">
-          <div></div>
           <Col md={15} span={24}>
             <Row justify="end" align="middle" gutter={[16]} className="hp-pt-24">
               <Col>
@@ -40,12 +25,6 @@ export default function Container() {
           </Col>
         </Row>
       </div>
-
-      <ImageTable />
-
-      <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
-        <ImageModal />
-      </Modal>
     </div>
   );
 }
