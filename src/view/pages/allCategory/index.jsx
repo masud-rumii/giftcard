@@ -5,7 +5,7 @@ import LandingFooter from "../landing/footer";
 import LandingHeader from "../landing/header";
 import Item from "./Item";
 
-export default function index() {
+export default function AllCategory() {
   const products = useSelector((state) => state.ecommerce.products);
 
   return (

@@ -7,8 +7,7 @@ export default function ProtectAfterLogin({
   redirectRoute,
   ...rest
 }) {
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   return (
     <Route

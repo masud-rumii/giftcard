@@ -12,6 +12,7 @@ import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 
 // Routes
 import { Routes } from "./routes";
+import ProtectedRoute from "../ProtectedRoute";
 
 // Layouts
 import FullLayout from "../layout/FullLayout";
@@ -22,6 +23,9 @@ import VerticalLayout from "../layout/VerticalLayout";
 import Analytics from "../view/main/dashboard/analytics";
 import Error404 from "../view/pages/errors/404";
 import Home from "../view/pages/home";
+import Login from "../view/pages/auth/login";
+import SingleCategory from "../view/pages/singleCategory";
+import AllCategory from "../view/pages/allCategory";
 
 export default function Router() {
   // Redux
@@ -120,11 +124,11 @@ export default function Router() {
             <Switch>
               {LayoutRoutes.map((route) => {
                 return (
-                  <Route
+                  <ProtectedRoute
                     key={route.path}
                     path={route.path}
                     exact={route.exact === true}
-                    render={(props) => {
+                    component={(props) => {
                       return (
                         <Suspense fallback={null}>
                           {route.layout === "FullLayout" ? (
@@ -185,6 +189,38 @@ export default function Router() {
             ) : (
               <Layouts.FullLayout>
                 <Home />
+              </Layouts.FullLayout>
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/login"
+          render={() => {
+            return DefaultLayout == "HorizontalLayout" ? (
+              <Layouts.FullLayout>
+                <Login />
+              </Layouts.FullLayout>
+            ) : (
+              <Layouts.FullLayout>
+                <Login />
+              </Layouts.FullLayout>
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/single-category/:id"
+          render={() => {
+            return DefaultLayout == "HorizontalLayout" ? (
+              <Layouts.FullLayout>
+                <SingleCategory />
+              </Layouts.FullLayout>
+            ) : (
+              <Layouts.FullLayout>
+                <SingleCategory />
               </Layouts.FullLayout>
             );
           }}

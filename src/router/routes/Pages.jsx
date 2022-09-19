@@ -2,11 +2,6 @@ import { lazy } from "react";
 
 const PagesRoutes = [
   {
-    path: "/single-category/:id",
-    component: lazy(() => import("../../view/pages/singleCategory/index")),
-    layout: "FullLayout",
-  },
-  {
     path: "/all-category",
     component: lazy(() => import("../../view/pages/allCategory/index")),
     layout: "FullLayout",
@@ -17,12 +12,7 @@ const PagesRoutes = [
     layout: "VerticalLayout",
   },
   {
-    path: "/home",
-    component: lazy(() => import("../../view/pages/home/index")),
-    layout: "FullLayout",
-  },
-  {
-    path: "/product-details/:pdId",
+    path: "/operator-details/:pdId",
     component: lazy(() => import("../../view/pages/singleCategory/Details")),
     layout: "FullLayout",
   },
@@ -35,12 +25,6 @@ const PagesRoutes = [
     path: "/slider-images",
     component: lazy(() => import("../../view/pages/slider-images/index")),
     layout: "VerticalLayout",
-  },
-
-  {
-    path: "/login",
-    component: lazy(() => import("../../view/pages/auth/login")),
-    layout: "FullLayout",
   },
 
   // ========================================================================================
