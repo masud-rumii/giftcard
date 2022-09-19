@@ -1,8 +1,17 @@
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
 export default function HeroSlider() {
+  const [sliderImage, setSliderImage] = useState([]);
+
+  useEffect(() => {
+    fetch("http://178.128.127.100/sochitel-communicator/public/api/get-all-slider-image")
+      .then((res) => res.json())
+      .then((data) => setSliderImage(data.data));
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -16,53 +25,15 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="hp-my-32">
+    <section>
       <Slider {...settings}>
-        <div>
-          <img
-            height={500}
-            width="100%"
-            style={{ objectFit: "cover" }}
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            height={500}
-            width="100%"
-            style={{ objectFit: "cover" }}
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            height={500}
-            width="100%"
-            style={{ objectFit: "cover" }}
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            height={500}
-            width="100%"
-            style={{ objectFit: "cover" }}
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            height={500}
-            width="100%"
-            style={{ objectFit: "cover" }}
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iUnleDpkbpOkxomYc_mctQHaEo%26pid%3DApi&f=1"
-            alt=""
-          />
-        </div>
+        {sliderImage.map((image) => {
+          return (
+            <div>
+              <img height={500} width="100%" style={{ objectFit: "cover" }} src={image} alt="" />
+            </div>
+          );
+        })}
       </Slider>
     </section>
   );

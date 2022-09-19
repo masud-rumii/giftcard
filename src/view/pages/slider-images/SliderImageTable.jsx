@@ -1,5 +1,4 @@
-import { Space, Table } from "antd";
-import React from "react";
+import { Space, Table, Image } from "antd";
 
 const data = [
   {
@@ -42,16 +41,16 @@ export default function ImageTable() {
       width: "5%",
     },
     {
-      title: "image",
+      title: "IMAGES",
       dataIndex: "image",
       key: "image",
-      render: (text, record) => <img height={20} width={20} src={record.image} alt="" />,
+      render: (_text, record) => <Image height={20} width={30} src={record.image} />,
     },
 
     {
       title: "Action",
       key: "action",
-      render: (text, record) => (
+      render: (_text, record) => (
         <Space size="middle">
           <a onClick={() => handelDelete(record.id)}>Delete</a>
         </Space>

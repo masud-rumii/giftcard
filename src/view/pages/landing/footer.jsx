@@ -83,7 +83,7 @@ export default function LandingFooter() {
                   via phone or send us a message.
                 </p>
 
-                <a href="mailto:info@hypeople.studio">info@hypeople.studio</a>
+                {/* <a href="mailto:info@hypeople.studio">info@hypeople.studio</a> */}
               </Col>
             </Row>
           </Col>
@@ -96,7 +96,7 @@ export default function LandingFooter() {
         >
           <Col>
             <p className="hp-p1-body hp-mb-sm-16 hp-mb-0">
-              © YODA 🥊 2021, All Rights Reserved.
+              © SOCHITEL 🥊 2021, All Rights Reserved.
             </p>
           </Col>
 
