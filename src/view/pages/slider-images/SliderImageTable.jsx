@@ -1,4 +1,4 @@
-import { Space, Table, Image } from "antd";
+import { Space, Table, Image, Switch } from "antd";
 
 const data = [
   {
@@ -46,9 +46,14 @@ export default function ImageTable() {
       key: "image",
       render: (_text, record) => <Image height={20} width={30} src={record.image} />,
     },
+    {
+      title: "SWITCH",
+
+      render: () => <Switch />,
+    },
 
     {
-      title: "Action",
+      title: "ACTIONS",
       key: "action",
       render: (_text, record) => (
         <Space size="middle">

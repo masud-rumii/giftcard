@@ -11,6 +11,7 @@ import { theme } from "../redux/customise/customiseActions";
 import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 
 // Routes
+import ProtectedRoute from "../ProtectedRoute";
 import { Routes } from "./routes";
 
 // Layouts
@@ -20,8 +21,12 @@ import VerticalLayout from "../layout/VerticalLayout";
 
 // Components
 import Analytics from "../view/main/dashboard/analytics";
+import Login from "../view/pages/auth/login";
 import Error404 from "../view/pages/errors/404";
 import Home from "../view/pages/home";
+import SingleCategory from "../view/pages/singleCategory";
+import OperatorDetails from "../view/pages/singleCategory/Details";
+//
 
 export default function Router() {
   // Redux
@@ -120,11 +125,11 @@ export default function Router() {
             <Switch>
               {LayoutRoutes.map((route) => {
                 return (
-                  <Route
+                  <ProtectedRoute
                     key={route.path}
                     path={route.path}
                     exact={route.exact === true}
-                    render={(props) => {
+                    component={(props) => {
                       return (
                         <Suspense fallback={null}>
                           {route.layout === "FullLayout" ? (
@@ -185,6 +190,54 @@ export default function Router() {
             ) : (
               <Layouts.FullLayout>
                 <Home />
+              </Layouts.FullLayout>
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/login"
+          render={() => {
+            return DefaultLayout == "HorizontalLayout" ? (
+              <Layouts.FullLayout>
+                <Login />
+              </Layouts.FullLayout>
+            ) : (
+              <Layouts.FullLayout>
+                <Login />
+              </Layouts.FullLayout>
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/single-category/:id"
+          render={() => {
+            return DefaultLayout == "HorizontalLayout" ? (
+              <Layouts.FullLayout>
+                <SingleCategory />
+              </Layouts.FullLayout>
+            ) : (
+              <Layouts.FullLayout>
+                <SingleCategory />
+              </Layouts.FullLayout>
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/operator-details/:pdId"
+          render={() => {
+            return DefaultLayout == "HorizontalLayout" ? (
+              <Layouts.FullLayout>
+                <OperatorDetails />
+              </Layouts.FullLayout>
+            ) : (
+              <Layouts.FullLayout>
+                <OperatorDetails />
               </Layouts.FullLayout>
             );
           }}

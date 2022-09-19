@@ -15,7 +15,7 @@ export default function ProductLarge(props) {
   };
 
   const handelClick = () => {
-    history.push(`/product-details/${value.id}`);
+    history.push(`/operator-details/${value.id}`);
     localStorage.setItem("operatorDetails", JSON.stringify(value));
   };
 

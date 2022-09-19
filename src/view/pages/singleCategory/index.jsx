@@ -5,7 +5,7 @@ import LandingFooter from "../landing/footer";
 import LandingHeader from "../landing/header";
 import Shop from "./Shop";
 
-export default function Home() {
+export default function SingleCategory() {
   const { id } = useParams();
 
   return (
