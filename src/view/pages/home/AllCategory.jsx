@@ -8,11 +8,11 @@ export default function AllCategory() {
   const { data: allCategories, isLoading } = useGetAllServices();
 
   return (
-    <section className="hp-landing-container hp-py-32">
+    <section className="hp-landing-container hp-py-96">
       {isLoading ? (
         <Spin />
       ) : (
-        <Row gutter={[24, 24]}>
+        <Row gutter={[24, 24]} justify="center">
           {allCategories?.data?.data?.map((item) => (
             <CategoryCard title={item.description} key={item.id} id={item.category_id} />
           ))}

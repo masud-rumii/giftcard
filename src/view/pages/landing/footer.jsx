@@ -27,9 +27,9 @@ export default function LandingFooter() {
           <Col lg={6} md={6}>
             <h2 style={{ color: "#4295CF" }}>Sochitel UK Ltd.</h2>
             <p className="hp-mb-32" style={{ color: "#4295CF" }}>
-              Sochitel Group is headquartered in London and Lagos, with strategic office
-              locations in New Jersey, Johannesburg, Accra and Douala, plus several other
-              pan-African locations.
+              Sochitel Group is headquartered in London and Lagos, with strategic office locations
+              in New Jersey, Johannesburg, Accra and Douala, plus several other pan-African
+              locations.
             </p>
           </Col>
 
@@ -82,10 +82,14 @@ export default function LandingFooter() {
               className="hp-d-block hp-font-weight-400 hp-mt-16"
               style={{ color: "#4295CF" }}
             >
-              <span>Connect with us</span> <FaLinkedinIn />
+              <span style={{ color: "#E0835C" }}>Connect with us</span> <FaLinkedinIn size={32} />
             </a>
 
-            <Button type="primary" className="hp-py-sm-8 hp-py-24 hp-mt-24" style={{}}>
+            <Button
+              type="primary"
+              className="hp-py-sm-8 hp-py-16 hp-px-32 hp-mt-24"
+              style={{ fontSize: "16px" }}
+            >
               Contact Us
             </Button>
           </Col>
@@ -144,11 +148,10 @@ export default function LandingFooter() {
               </Form.Item>
 
               <p>
-                Sochitel Group needs the contact information you provide to us to contact
-                you about our products and services. You may unsubscribe from these
-                communications at any time. For information on how to unsubscribe, as well
-                as our privacy practices and commitment to protecting your privacy, please
-                review our Privacy Policy.
+                Sochitel Group needs the contact information you provide to us to contact you about
+                our products and services. You may unsubscribe from these communications at any
+                time. For information on how to unsubscribe, as well as our privacy practices and
+                commitment to protecting your privacy, please review our Privacy Policy.
               </p>
 
               <Form.Item>
