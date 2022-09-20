@@ -5,8 +5,10 @@ import { useSelector } from "react-redux";
 export default function OperatorsTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [id, setId] = useState(null);
+  const [titleText, setTitleText] = useState("");
 
-  const showModal = (id) => {
+  const showModal = (id, title) => {
+    setTitleText(title);
     setId(id);
     setIsModalOpen(true);
   };
@@ -54,7 +56,7 @@ export default function OperatorsTable() {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={() => showModal(record.id)}>Edit {record.name}</a>
+          <a onClick={() => showModal(record.id, record.title)}>Edit</a>
         </Space>
       ),
     },
@@ -78,7 +80,7 @@ export default function OperatorsTable() {
     <>
       <Table columns={columns} dataSource={products} rowKey="id" />
       <Modal
-        title="Edit Product"
+        title={titleText}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
