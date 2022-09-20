@@ -28,13 +28,6 @@ export default function OperatorsTable({ dataSource, loading }) {
     setIsModalOpen(false);
   };
 
-  //   brandId: 13
-  // countryId: "BD"
-  // currencyId: "BDT"
-  // id: 49
-  // logoUrl: "https://media.sochitel.com/img/operators/13.png"
-  // name: "Banglalink"
-
   const columns = [
     {
       title: "#",
