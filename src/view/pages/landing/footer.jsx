@@ -1,6 +1,6 @@
 import { Button, Col, Form, Input, Row } from "antd";
-import { Call, Message } from "iconsax-react";
 import React from "react";
+import { FaEnvelope, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import FooterImage from "../../../assets/images/pages/landing/footer-bg.png";
 
 export default function LandingFooter() {
@@ -67,15 +67,24 @@ export default function LandingFooter() {
               className="hp-d-block hp-font-weight-400 hp-mt-16"
               style={{ color: "#4295CF" }}
             >
-              <Call size="18" /> <span>+4402071835517</span>
+              <FaPhoneAlt /> <span>+4402071835517</span>
             </a>
             <a
               href="#"
               className="hp-d-block hp-font-weight-400 hp-mt-16"
               style={{ color: "#4295CF" }}
             >
-              <Message size="18" /> <span>info@sochitel.com</span>
+              <FaEnvelope /> <span>info@sochitel.com</span>
             </a>
+
+            <a
+              href="#"
+              className="hp-d-block hp-font-weight-400 hp-mt-16"
+              style={{ color: "#4295CF" }}
+            >
+              <span>Connect with us</span> <FaLinkedinIn />
+            </a>
+
             <Button type="primary" className="hp-py-sm-8 hp-py-24 hp-mt-24" style={{}}>
               Contact Us
             </Button>
