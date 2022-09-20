@@ -1,8 +1,13 @@
-import { Button, Form, Input, Modal, Space, Table } from "antd";
 import { useState } from "react";
+
+// redux
 import { useSelector } from "react-redux";
 
-export default function OperatorsTable() {
+// antd
+import { Button, Form, Input, Modal, Space, Table, Image } from "antd";
+const { TextArea } = Input;
+
+export default function OperatorsTable({ dataSource, loading }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [id, setId] = useState(null);
 
@@ -10,6 +15,8 @@ export default function OperatorsTable() {
     setId(id);
     setIsModalOpen(true);
   };
+
+  console.log({ dataSource, loading });
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -19,7 +26,12 @@ export default function OperatorsTable() {
     setIsModalOpen(false);
   };
 
-  const products = useSelector((state) => state.ecommerce.products);
+  //   brandId: 13
+  // countryId: "BD"
+  // currencyId: "BDT"
+  // id: 49
+  // logoUrl: "https://media.sochitel.com/img/operators/13.png"
+  // name: "Banglalink"
 
   const columns = [
     {
@@ -30,31 +42,32 @@ export default function OperatorsTable() {
       render: (_text, _record, index) => index + 1,
     },
     {
-      title: "TITLE",
-      dataIndex: "title",
-      key: "title",
+      title: "NAME",
+      dataIndex: "name",
+      key: "name",
     },
     {
-      title: "SUBTITLE",
-      dataIndex: "subTitle",
-      key: "subTitle",
+      title: "LOGO",
+      dataIndex: "logoUrl",
+      key: "logoUrl",
+      render: (text) => <Image src={text} height={30} />,
     },
     {
-      title: "PRICE",
-      dataIndex: "price",
-      key: "price",
+      title: "COUNTRY CODE",
+      dataIndex: "countryId",
+      key: "countryId",
     },
     {
-      title: "RATE",
-      dataIndex: "rate",
-      key: "rate",
+      title: "CURRENCY",
+      dataIndex: "currencyId",
+      key: "currencyId",
     },
     {
       title: "ACTIONS",
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={() => showModal(record.id)}>Edit {record.name}</a>
+          <a onClick={() => showModal(record.id)}>Edit</a>
         </Space>
       ),
     },
@@ -72,11 +85,9 @@ export default function OperatorsTable() {
     console.log("Failed:", errorInfo);
   };
 
-  const { TextArea } = Input;
-
   return (
     <>
-      <Table columns={columns} dataSource={products} rowKey="id" />
+      <Table columns={columns} dataSource={dataSource} rowKey="id" loading={loading} />
       <Modal
         title="Edit Product"
         open={isModalOpen}
