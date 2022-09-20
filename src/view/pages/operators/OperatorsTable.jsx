@@ -10,8 +10,10 @@ const { TextArea } = Input;
 export default function OperatorsTable({ dataSource, loading }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [id, setId] = useState(null);
+  const [titleText, setTitleText] = useState("");
 
-  const showModal = (id) => {
+  const showModal = (id, title) => {
+    setTitleText(title);
     setId(id);
     setIsModalOpen(true);
   };
@@ -89,7 +91,7 @@ export default function OperatorsTable({ dataSource, loading }) {
     <>
       <Table columns={columns} dataSource={dataSource} rowKey="id" loading={loading} />
       <Modal
-        title="Edit Product"
+        title={titleText}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
