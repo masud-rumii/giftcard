@@ -1,0 +1,2 @@
+(this.webpackJsonpsochitel_giftcard=this.webpackJsonpsochitel_giftcard||[]).push([[98],{1016:function(t,c,e){"use strict";e.r(c),e.d(c,"default",(function(){return a}));e(1);var s=e(185),i=e(2);function a(){return Object(i.jsx)("div",{className:"hp-p-32 hp-bg-black-20 hp-bg-dark-90",children:Object(i.jsx)(s.default,{})})}}}]);
+//# sourceMappingURL=98.a29ecf0c.chunk.js.map
