@@ -15,7 +15,7 @@ export default function LandingHeader() {
       className="hp-px-sm-16 hp-py-sm-8 hp-px-32 hp-py-24 hp-ml-sm-0 hp-ml-8"
       onClick={handelClick}
     >
-      Contact Us
+      Book a Meeting
     </Button>
   );
 
