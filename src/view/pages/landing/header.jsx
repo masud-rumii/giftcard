@@ -5,11 +5,15 @@ import { Link } from "react-router-dom";
 import MenuLogo from "../../../layout/components/menu/logo";
 
 export default function LandingHeader() {
+  const handelClick = () => {
+    window.location.href = "https://share-eu1.hsforms.com/1D0yYsx--RMitmeRkJ1rx3gf5rgs";
+  };
+
   const loginButton = (
     <Button
       type="primary"
       className="hp-px-sm-16 hp-py-sm-8 hp-px-32 hp-py-24 hp-ml-sm-0 hp-ml-8"
-      // style={{  fontWeight: "600", fontSize: "16px" }}
+      onClick={handelClick}
     >
       Contact Us
     </Button>
