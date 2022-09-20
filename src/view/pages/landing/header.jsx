@@ -1,22 +1,15 @@
-import React from "react";
-
-import { useSelector } from "react-redux";
-
 import { Button, Col, Dropdown, Menu, Row } from "antd";
+import React from "react";
 import { RiMenuFill } from "react-icons/ri";
-
 import { Link } from "react-router-dom";
 import MenuLogo from "../../../layout/components/menu/logo";
 
 export default function LandingHeader() {
-  // Redux
-  const customise = useSelector((state) => state.customise);
-
   const loginButton = (
     <Button
       type="primary"
       className="hp-px-sm-16 hp-py-sm-8 hp-px-32 hp-py-24 hp-ml-sm-0 hp-ml-8"
-      style={{ backgroundColor: "#E0835C", border: "none", fontWeight: "600", fontSize: "16px" }}
+      // style={{  fontWeight: "600", fontSize: "16px" }}
     >
       Contact Us
     </Button>

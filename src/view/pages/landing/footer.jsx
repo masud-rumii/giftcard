@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Col, Row, Form, Input } from "antd";
-import FooterImage from "../../../assets/images/pages/landing/footer-bg.png";
+import { Button, Col, Form, Input, Row } from "antd";
 import { Call, Message } from "iconsax-react";
+import React from "react";
+import FooterImage from "../../../assets/images/pages/landing/footer-bg.png";
 
 export default function LandingFooter() {
   const onFinish = (values) => {
@@ -23,135 +23,131 @@ export default function LandingFooter() {
       }}
     >
       <div className="hp-landing-container">
-        <Row justify="space-between" className="hp-mb-sm-64 hp-mb-120">
-          <Col lg={6} md={16} span={24}>
+        <Row justify="space-between" gutter={[24, 24]} className="hp-mb-sm-64 hp-mb-120">
+          <Col lg={6} md={6}>
             <h2 style={{ color: "#4295CF" }}>Sochitel UK Ltd.</h2>
             <p className="hp-mb-32" style={{ color: "#4295CF" }}>
-              Sochitel Group is headquartered in London and Lagos, with strategic office locations
-              in New Jersey, Johannesburg, Accra and Douala, plus several other pan-African
-              locations.
+              Sochitel Group is headquartered in London and Lagos, with strategic office
+              locations in New Jersey, Johannesburg, Accra and Douala, plus several other
+              pan-African locations.
             </p>
           </Col>
 
-          <Col lg={16} span={24} className="hp-mt-md-64">
-            <Row>
-              <Col flex="1 0 0">
-                <h2 style={{ color: "#4295CF" }}>Features</h2>
+          <Col lg={5} md={5}>
+            <h2 style={{ color: "#4295CF" }}>Features</h2>
 
-                <a
-                  href="#"
-                  className="hp-d-block hp-font-weight-400 hp-mt-16"
-                  style={{ color: "#4295CF" }}
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#"
-                  className="hp-d-block hp-font-weight-400 hp-mt-16"
-                  style={{ color: "#4295CF" }}
-                >
-                  About Us
-                </a>
-                <a
-                  href="#"
-                  className="hp-d-block hp-font-weight-400 hp-mt-16"
-                  style={{ color: "#4295CF" }}
-                >
-                  Contact Us
-                </a>
-              </Col>
+            <a
+              href="#"
+              className="hp-d-block hp-font-weight-400 hp-mt-16"
+              style={{ color: "#4295CF" }}
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="hp-d-block hp-font-weight-400 hp-mt-16"
+              style={{ color: "#4295CF" }}
+            >
+              About Us
+            </a>
+            <a
+              href="#"
+              className="hp-d-block hp-font-weight-400 hp-mt-16"
+              style={{ color: "#4295CF" }}
+            >
+              Contact Us
+            </a>
+          </Col>
 
-              <Col flex="1 0 0">
-                <h2 style={{ color: "#4295CF" }}>Contacts</h2>
+          <Col lg={5} md={5}>
+            <h2 style={{ color: "#4295CF" }}>Contacts</h2>
 
-                <a
-                  href="#"
-                  className="hp-d-block hp-font-weight-400 hp-mt-16"
-                  style={{ color: "#4295CF" }}
-                >
-                  <Call size="18" /> <span>+4402071835517</span>
-                </a>
-                <a
-                  href="#"
-                  className="hp-d-block hp-font-weight-400 hp-mt-16"
-                  style={{ color: "#4295CF" }}
-                >
-                  <Message size="18" /> <span>info@sochitel.com</span>
-                </a>
-                <Button
-                  type="primary"
-                  className="hp-py-sm-8 hp-py-24 hp-mt-24"
-                  style={{
-                    backgroundColor: "#E0835C",
-                    border: "none",
-                    fontWeight: "600",
-                    fontSize: "16px",
-                  }}
-                >
-                  Contact Us
+            <a
+              href="#"
+              className="hp-d-block hp-font-weight-400 hp-mt-16"
+              style={{ color: "#4295CF" }}
+            >
+              <Call size="18" /> <span>+4402071835517</span>
+            </a>
+            <a
+              href="#"
+              className="hp-d-block hp-font-weight-400 hp-mt-16"
+              style={{ color: "#4295CF" }}
+            >
+              <Message size="18" /> <span>info@sochitel.com</span>
+            </a>
+            <Button type="primary" className="hp-py-sm-8 hp-py-24 hp-mt-24" style={{}}>
+              Contact Us
+            </Button>
+          </Col>
+
+          <Col lg={8} md={8}>
+            <h2 style={{ color: "#4295CF" }}>Newsletter</h2>
+
+            <Form
+              layout="vertical"
+              name="basic"
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete="off"
+            >
+              <Form.Item
+                style={{ marginBottom: "20px" }}
+                label="Email"
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your email!",
+                  },
+                ]}
+              >
+                <Input style={{ backgroundColor: "#f5f8fa" }} />
+              </Form.Item>
+
+              <Form.Item
+                style={{ marginBottom: "20px" }}
+                label="First Name"
+                name="text"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your First name!",
+                  },
+                ]}
+              >
+                <Input style={{ backgroundColor: "#f5f8fa" }} />
+              </Form.Item>
+
+              <Form.Item
+                style={{ marginBottom: "20px" }}
+                label="Last Name"
+                name="text"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Last name!",
+                  },
+                ]}
+              >
+                <Input style={{ backgroundColor: "#f5f8fa" }} />
+              </Form.Item>
+
+              <p>
+                Sochitel Group needs the contact information you provide to us to contact
+                you about our products and services. You may unsubscribe from these
+                communications at any time. For information on how to unsubscribe, as well
+                as our privacy practices and commitment to protecting your privacy, please
+                review our Privacy Policy.
+              </p>
+
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  Submit
                 </Button>
-              </Col>
-
-              <Col flex="0 0 260px" className="hp-mt-sm-32">
-                <h2 style={{ color: "#4295CF" }}>Newsletter</h2>
-
-                <Form
-                  name="basic"
-                  labelCol={{
-                    span: 24,
-                  }}
-                  wrapperCol={{
-                    span: 24,
-                  }}
-                  initialValues={{
-                    remember: true,
-                  }}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
-                >
-                  <Form.Item
-                    label="Name"
-                    name="text"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your name!",
-                      },
-                    ]}
-                  >
-                    <Input style={{ backgroundColor: "#f5f8fa" }} />
-                  </Form.Item>
-
-                  <Form.Item
-                    style={{ marginTop: "-20px" }}
-                    label="Email"
-                    name="email"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your email!",
-                      },
-                    ]}
-                  >
-                    <Input style={{ backgroundColor: "#f5f8fa" }} />
-                  </Form.Item>
-
-                  <Form.Item>
-                    <Button
-                      type="primary"
-                      htmlType="submit"
-                      style={{
-                        backgroundColor: "#E0835C",
-                        border: "none",
-                      }}
-                    >
-                      Submit
-                    </Button>
-                  </Form.Item>
-                </Form>
-              </Col>
-            </Row>
+              </Form.Item>
+            </Form>
           </Col>
         </Row>
 
@@ -162,7 +158,7 @@ export default function LandingFooter() {
         >
           <Col>
             <p className="hp-p1-body hp-mb-sm-16 hp-mb-0">
-              © SOCHITEL 🥊 2022, All Rights Reserved.
+              Copyright © 2017-2022 Sochitel Group - Co Reg. 05869065
             </p>
           </Col>
         </Row>

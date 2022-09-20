@@ -4,6 +4,7 @@ import LandingFooter from "../landing/footer";
 import LandingHeader from "../landing/header";
 import AllCategory from "./AllCategory";
 import HeroSlider from "./HeroSlider";
+
 export default function Category() {
   return (
     <Row gutter={32} className="hp-ecommerce-app">
