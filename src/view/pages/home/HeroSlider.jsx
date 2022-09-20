@@ -1,16 +1,11 @@
-import { useEffect, useState } from "react";
+import { Spin } from "antd";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import useGetAllSliderImage from "../../../hooks/rq/sohcitelCommunicator/useGetAllSliderImage";
 
 export default function HeroSlider() {
-  const [sliderImage, setSliderImage] = useState([]);
-
-  useEffect(() => {
-    fetch("http://178.128.127.100/sochitel-communicator/public/api/get-all-slider-image")
-      .then((res) => res.json())
-      .then((data) => setSliderImage(data.data));
-  }, []);
+  const { data: allSliderImage, isLoading } = useGetAllSliderImage();
 
   const settings = {
     dots: true,
@@ -25,16 +20,26 @@ export default function HeroSlider() {
   };
 
   return (
-    <section>
-      <Slider {...settings}>
-        {sliderImage.map((image) => {
-          return (
-            <div>
-              <img height={500} width="100%" style={{ objectFit: "cover" }} src={image} alt="" />
-            </div>
-          );
-        })}
-      </Slider>
-    </section>
+    <>
+      {isLoading ? (
+        <Spin />
+      ) : (
+        <Slider {...settings}>
+          {allSliderImage?.data?.data.map((image, idx) => {
+            return (
+              <div key={idx}>
+                <img
+                  height={500}
+                  width="100%"
+                  style={{ objectFit: "cover" }}
+                  src={image}
+                  alt=""
+                />
+              </div>
+            );
+          })}
+        </Slider>
+      )}
+    </>
   );
 }
