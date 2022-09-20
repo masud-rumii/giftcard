@@ -1,4 +1,4 @@
-import { Space, Table, Image, Switch } from "antd";
+import { Space, Table, Image, Switch, Popconfirm, message } from "antd";
 
 const data = [
   {
@@ -29,6 +29,16 @@ const data = [
 ];
 
 export default function ImageTable() {
+  const confirm = (e) => {
+    console.log(e);
+    message.success("Click on Yes");
+  };
+
+  const cancel = (e) => {
+    console.log(e);
+    message.error("Click on No");
+  };
+
   const handelDelete = (id) => {
     console.log(id);
   };
@@ -57,7 +67,15 @@ export default function ImageTable() {
       key: "action",
       render: (_text, record) => (
         <Space size="middle">
-          <a onClick={() => handelDelete(record.id)}>Delete</a>
+          <Popconfirm
+            title="Are you sure to delete this image?"
+            onConfirm={confirm}
+            onCancel={cancel}
+            okText="Yes"
+            cancelText="No"
+          >
+            <a onClick={() => handelDelete(record.id)}>Delete</a>
+          </Popconfirm>
         </Space>
       ),
     },
