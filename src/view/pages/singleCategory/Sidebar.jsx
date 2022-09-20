@@ -1,17 +1,26 @@
-import { Button, Col, Collapse, Divider, Radio, Row, Slider } from "antd";
 import React, { useEffect, useState } from "react";
-import { RiArrowRightSLine } from "react-icons/ri";
+
+// redux
 import { useDispatch } from "react-redux";
-import useGetAllCategories from "../../../hooks/rq/sohcitelCommunicator/useGetAllCategories";
-import useGetAllCountries from "../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
-import useGetAllOperator from "../../../hooks/rq/sohcitelCommunicator/useGetAllOperator";
 import {
   allOperators,
   operatorLoadingFunc,
 } from "../../../redux/operator/operatorActions";
 
+// antd
+import { Button, Col, Collapse, Divider, Radio, Row, Slider, Input } from "antd";
 const { Panel } = Collapse;
+const { Search } = Input;
 
+// icons
+import { RiArrowRightSLine, RiSearchLine } from "react-icons/ri";
+
+// hooks
+import useGetAllCategories from "../../../hooks/rq/sohcitelCommunicator/useGetAllCategories";
+import useGetAllCountries from "../../../hooks/rq/sohcitelCommunicator/useGetAllCountries";
+import useGetAllOperator from "../../../hooks/rq/sohcitelCommunicator/useGetAllOperator";
+
+// Sidebar
 export default function Sidebar({ id }) {
   const genExtra = () => (
     <RiArrowRightSLine size={24} className="hp-collapse-arrow hp-text-color-black-60" />
@@ -30,7 +39,7 @@ export default function Sidebar({ id }) {
     categoryId: categoryId,
     countryId: CountryName,
   });
-  console.log(operatorLoading);
+
   useEffect(() => {
     const data = allOperator?.data?.data;
 
@@ -63,15 +72,22 @@ export default function Sidebar({ id }) {
     // queryClient.invalidateQueries(["fetchAllOperator"]);
   };
 
+  const [countrySearchQuery, setCountrySearchQuery] = useState("");
+  const onSearch = (e) => {
+    setCountrySearchQuery(e.target.value);
+  };
+
+  console.log(countrySearchQuery);
+
   return (
     <Col flex="0 0 270px" className="hp-ecommerce-app-sidebar">
       <Row className="hp-border-radius hp-overflow-hidden hp-border-1 hp-border-color-black-40 hp-border-color-dark-80 hp-bg-color-black-0 hp-bg-color-dark-100 hp-px-24 hp-py-16">
         <Col span={24}>
           <h5 className="hp-mb-4 hp-text-color-black-80 hp-text-color-dark-30">
-            Digital Cameras
+            Operators
           </h5>
           <span className="hp-badge-text hp-d-block hp-text-color-black-80 hp-text-color-dark-30">
-            112 Product
+            {/* 112 Product */}
           </span>
         </Col>
 
@@ -89,17 +105,33 @@ export default function Sidebar({ id }) {
             extra={genExtra()}
           >
             {!isLoading ? (
-              <Radio.Group onChange={onCountryChange} value={CountryName}>
-                {countries?.data?.data?.map((country, idx) => (
-                  <Row className="hp-mt-16" key={idx}>
-                    <Col span={24}>
-                      <Row align="middle" justify="space-between">
-                        <Radio value={country.code}>{country.name}</Radio>
+              <>
+                <Input
+                  placeholder="Placeholder text"
+                  className="hp-mt-12"
+                  onChange={onSearch}
+                  prefix={<RiSearchLine set="curved" className="remix-icon" size={16} />}
+                />
+
+                <Radio.Group onChange={onCountryChange} value={CountryName}>
+                  {countries?.data?.data
+                    ?.filter((obj) => {
+                      if (countrySearchQuery === "") return true;
+                      return obj.name.search(new RegExp(countrySearchQuery, "i")) === -1
+                        ? false
+                        : true;
+                    })
+                    .map((country, idx) => (
+                      <Row className="hp-mt-16" key={idx}>
+                        <Col span={24}>
+                          <Row align="middle" justify="space-between">
+                            <Radio value={country.code}>{country.name}</Radio>
+                          </Row>
+                        </Col>
                       </Row>
-                    </Col>
-                  </Row>
-                ))}
-              </Radio.Group>
+                    ))}
+                </Radio.Group>
+              </>
             ) : (
               "Loading..."
             )}
@@ -185,61 +217,6 @@ export default function Sidebar({ id }) {
                 />
               </Col>
             </Row>
-          </Panel>
-        </Collapse>
-
-        <Divider />
-
-        <Collapse>
-          <Panel
-            header={
-              <h5 className="hp-mb-0 hp-text-color-black-80 hp-text-color-dark-30">
-                Tags
-              </h5>
-            }
-            key="1"
-            showArrow={false}
-            extra={genExtra()}
-          >
-            <Radio.Group onChange={onChangeTags} value={valueTags}>
-              <Row className="hp-mt-16">
-                <Col span={24}>
-                  <Row align="middle" justify="space-between">
-                    <Radio value={1}>Featured</Radio>
-                    <span className="hp-caption hp-text-color-black-80 hp-text-color-dark-30">
-                      1,417
-                    </span>
-                  </Row>
-                </Col>
-
-                <Col span={24}>
-                  <Row align="middle" justify="space-between">
-                    <Radio value={2}>On Sale</Radio>
-                    <span className="hp-caption hp-text-color-black-80 hp-text-color-dark-30">
-                      230
-                    </span>
-                  </Row>
-                </Col>
-
-                <Col span={24}>
-                  <Row align="middle" justify="space-between">
-                    <Radio value={3}>New</Radio>
-                    <span className="hp-caption hp-text-color-black-80 hp-text-color-dark-30">
-                      402
-                    </span>
-                  </Row>
-                </Col>
-
-                <Col span={24}>
-                  <Row align="middle" justify="space-between">
-                    <Radio value={4}>Sponsored</Radio>
-                    <span className="hp-caption hp-text-color-black-80 hp-text-color-dark-30">
-                      188
-                    </span>
-                  </Row>
-                </Col>
-              </Row>
-            </Radio.Group>
           </Panel>
         </Collapse>
 
