@@ -28,19 +28,23 @@ export default function Operators() {
 
   const [categoryId, setCategoryId] = useState("");
 
+  const { data: operators, isLoading: isOperatorLoading } = useGetAllOperator({
+    serviceId,
+    countryId,
+    categoryId,
+  });
+
   useEffect(() => {
     if (services) {
       setFirstService(services?.data.data[0].description);
       setServiceId(services?.data.data[0].id);
     }
-  }, [services]);
 
-  useEffect(() => {
     if (countries) {
       setFirstCountry(countries?.data.data[0].name);
       setCountryId(countries?.data.data[0].code);
     }
-  }, [countries]);
+  }, [services, countries]);
 
   const handleServiceChange = (value) => {
     setServiceId(value);
@@ -61,21 +65,14 @@ export default function Operators() {
       const URI = `/get-all-category?service_id=${serviceId}&country_id=${countryId}`;
       setIsCategoryLoading(true);
       const { data } = await axiosInstance.get(URI);
-      setCategories(data.data);
-      setCategoryId(data.data[0].id);
       setIsCategoryLoading(false);
+      console.log(data.data);
+      setCategories(data.data);
+      setCategoryId(data.data[0]?.id);
     } catch (error) {
       console.log(error);
     }
   }, [countryId, serviceId]);
-
-  console.log({ serviceId, countryId, categoryId });
-
-  const { data: operators, isLoading: isOperatorLoading } = useGetAllOperator({
-    serviceId,
-    countryId,
-    categoryId,
-  });
 
   return (
     <Row gutter={[16, 16]}>
