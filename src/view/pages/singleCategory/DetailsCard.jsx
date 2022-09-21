@@ -1,10 +1,9 @@
+import { Card, Col, Divider, Row } from "antd";
 import React from "react";
 
-import { Card, Col, Divider, Row } from "antd";
-
-export default function Detail({ operatorDetails = {}, products }) {
+export default function DetailsCard({ operatorDetails = {}, products = [] }) {
   const { name, logoUrl, countryId, id } = operatorDetails;
-  console.log(products);
+
   return (
     <Row className="hp-ecommerce-app-detail hp-mb-32" key={id}>
       <Col className="hp-mb-32" span={24}>
@@ -33,6 +32,32 @@ export default function Detail({ operatorDetails = {}, products }) {
                   {countryId}
                 </span>
               </span>
+
+              <Divider />
+
+              {products?.length && (
+                <>
+                  <h3>All Products</h3>
+                  <Row gutter={[24, 24]}>
+                    {products.map((pd) => {
+                      return (
+                        <Col lg={12} key={pd.id}>
+                          <Card>
+                            <h4>Name: {pd.name}</h4>
+
+                            <div>
+                              Min : {pd.amount.min} {pd.currency}
+                            </div>
+                            <div>
+                              Max: {pd.amount.max} {pd.currency}
+                            </div>
+                          </Card>
+                        </Col>
+                      );
+                    })}
+                  </Row>
+                </>
+              )}
 
               <Divider />
             </Col>

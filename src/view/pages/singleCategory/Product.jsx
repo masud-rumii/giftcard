@@ -3,12 +3,11 @@ import { useHistory } from "react-router-dom";
 
 import { Card, Col, Row } from "antd";
 
-export default function Product(props) {
-  const { value } = props;
+export default function Product({ value, serviceId }) {
   const history = useHistory();
 
   const handelClick = () => {
-    history.push(`/operator-details/${value.id}`);
+    history.push(`/operator-details/${value.id}?serviceId=${serviceId}`);
     localStorage.setItem("operatorDetails", JSON.stringify(value));
   };
 

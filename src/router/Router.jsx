@@ -213,7 +213,7 @@ export default function Router() {
 
         <Route
           exact
-          path="/single-category/:id"
+          path="/single-service/:id"
           render={() => {
             return DefaultLayout == "HorizontalLayout" ? (
               <Layouts.FullLayout>
@@ -229,7 +229,7 @@ export default function Router() {
 
         <Route
           exact
-          path="/operator-details/:pdId"
+          path="/operator-details/:operatorId"
           render={() => {
             return DefaultLayout == "HorizontalLayout" ? (
               <Layouts.FullLayout>
