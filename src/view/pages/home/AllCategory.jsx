@@ -12,7 +12,7 @@ export default function AllCategory() {
       {isLoading ? (
         <Spin />
       ) : (
-        <Row gutter={[48, 48]} justify="center">
+        <Row gutter={[48, 48]}>
           {allCategories?.data?.data?.map((item) => (
             <CategoryCard title={item.description} key={item.id} id={item.category_id} />
           ))}
