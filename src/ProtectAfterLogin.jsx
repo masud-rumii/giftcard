@@ -14,7 +14,7 @@ export default function ProtectAfterLogin({
       {...rest}
       render={(props) => {
         if (!isLoggedIn) return <Component {...props} />;
-        return <Redirect to="/user-info/recent-transaction" />;
+        return <Redirect to="/operators" />;
       }}
     />
   );

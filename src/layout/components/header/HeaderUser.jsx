@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
 import { Dropdown, Col, Divider, Row } from "antd";
-import { UserOctagon, Flag, Calendar, Calculator } from "iconsax-react";
 
 import avatarImg from "../../../assets/images/memoji/user-avatar-4.png";
 
@@ -32,12 +30,15 @@ export default function HeaderUser() {
         </Col>
 
         <Col span={24}>
-          <Link
-            to="/pages/authentication/login"
+          <a
             className="hp-p1-body hp-font-weight-500 hp-hover-text-color-primary-2"
+            onClick={() => {
+              localStorage.clear();
+              location.href = "/login";
+            }}
           >
             Log out
-          </Link>
+          </a>
         </Col>
       </Row>
     </div>
