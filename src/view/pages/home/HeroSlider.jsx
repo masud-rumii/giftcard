@@ -56,7 +56,7 @@ export default function HeroSlider() {
               <Button
                 type="primary"
                 className="hp-py-sm-8 hp-py-16 hp-px-32 hp-mt-24"
-                style={{ fontSize: "16px", boxShadow: "5px 5px 5px black" }}
+                style={{ fontSize: "16px", boxShadow: "5px 5px 3px black" }}
               >
                 Contact Us
               </Button>

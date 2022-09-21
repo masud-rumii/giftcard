@@ -13,7 +13,7 @@ export default function LandingFooter() {
   };
   return (
     <footer
-      className="hp-position-relative hp-pt-sm-64 hp-pt-120 hp-pb-24 hp-overflow-hidden"
+      className="hp-position-relative hp-pt-sm-48 hp-pt-96 hp-pb-24 hp-overflow-hidden"
       style={{
         backgroundImage: `url(${FooterImage})`,
         backgroundColor: "#f2f2f2",
@@ -23,7 +23,7 @@ export default function LandingFooter() {
       }}
     >
       <div className="hp-landing-container">
-        <Row justify="space-between" gutter={[24, 24]} className="hp-mb-sm-64 hp-mb-120">
+        <Row justify="space-between" gutter={[24, 24]} className="hp-mb-sm-16 hp-mb-24">
           <Col lg={6} md={6}>
             <h2 style={{ color: "#4295CF" }}>Sochitel UK Ltd.</h2>
             <p className="hp-mb-32" style={{ color: "#4295CF" }}>
