@@ -12,6 +12,7 @@ import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 
 // Routes
 import ProtectedRoute from "../ProtectedRoute";
+import ProtectAfterLogin from "../ProtectAfterLogin";
 import { Routes } from "./routes";
 
 // Layouts
@@ -21,12 +22,10 @@ import VerticalLayout from "../layout/VerticalLayout";
 
 // Components
 import Analytics from "../view/main/dashboard/analytics";
-import Login from "../view/pages/auth/login";
 import Error404 from "../view/pages/errors/404";
 import Home from "../view/pages/home";
 import SingleCategory from "../view/pages/singleCategory";
 import OperatorDetails from "../view/pages/singleCategory/Details";
-//
 
 export default function Router() {
   // Redux
@@ -124,6 +123,33 @@ export default function Router() {
           <LayoutTag>
             <Switch>
               {LayoutRoutes.map((route) => {
+                console.log(route.path);
+                if (route.path === "/login") {
+                  return (
+                    <ProtectAfterLogin
+                      key={route.path}
+                      path={route.path}
+                      exact={route.exact === true}
+                      component={(props) => {
+                        return (
+                          <Suspense fallback={null}>
+                            {route.layout === "FullLayout" ? (
+                              <route.component {...props} />
+                            ) : (
+                              <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ type: "spring", duration: 0.5, delay: 0.5 }}
+                              >
+                                <route.component {...props} />
+                              </motion.div>
+                            )}
+                          </Suspense>
+                        );
+                      }}
+                    />
+                  );
+                }
                 return (
                   <ProtectedRoute
                     key={route.path}
@@ -197,23 +223,7 @@ export default function Router() {
 
         <Route
           exact
-          path="/login"
-          render={() => {
-            return DefaultLayout == "HorizontalLayout" ? (
-              <Layouts.FullLayout>
-                <Login />
-              </Layouts.FullLayout>
-            ) : (
-              <Layouts.FullLayout>
-                <Login />
-              </Layouts.FullLayout>
-            );
-          }}
-        />
-
-        <Route
-          exact
-          path="/single-category/:id"
+          path="/single-service/:id"
           render={() => {
             return DefaultLayout == "HorizontalLayout" ? (
               <Layouts.FullLayout>
@@ -229,7 +239,7 @@ export default function Router() {
 
         <Route
           exact
-          path="/operator-details/:pdId"
+          path="/operator-details/:operatorId"
           render={() => {
             return DefaultLayout == "HorizontalLayout" ? (
               <Layouts.FullLayout>

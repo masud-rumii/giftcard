@@ -1,21 +1,12 @@
 import { Card, Col, Row } from "antd";
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { adjustItemQty } from "../../../redux/ecommerce/ecommerceActions";
 
-export default function ProductLarge(props) {
-  const { value } = props;
-  const dispatch = useDispatch();
+export default function ProductLarge({ value, serviceId }) {
   const history = useHistory();
 
-  // Qty
-  const onChangeHandler = (e) => {
-    dispatch(adjustItemQty(value.id, e));
-  };
-
   const handelClick = () => {
-    history.push(`/operator-details/${value.id}`);
+    history.push(`/operator-details/${value.id}?serviceId=${serviceId}`);
     localStorage.setItem("operatorDetails", JSON.stringify(value));
   };
 

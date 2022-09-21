@@ -11,7 +11,7 @@ export default function Item(props) {
   const history = useHistory();
 
   const handelClick = () => {
-    history.push(`/single-category/${value.id}`);
+    history.push(`/single-service/${value.id}`);
     dispatch(loadCurrentItem(value));
   };
 

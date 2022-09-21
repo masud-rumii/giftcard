@@ -22,6 +22,12 @@ const PagesRoutes = [
     layout: "VerticalLayout",
   },
 
+  {
+    path: "/login",
+    component: lazy(() => import("../../view/pages/auth/login")),
+    layout: "FullLayout",
+  },
+
   // ========================================================================================
 
   {

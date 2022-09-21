@@ -2,9 +2,9 @@ import React from "react";
 
 import { Card, Col, Divider, Row } from "antd";
 
-export default function Detail({ operatorDetails = {} }) {
+export default function Detail({ operatorDetails = {}, products }) {
   const { name, logoUrl, countryId, id } = operatorDetails;
-
+  console.log(products);
   return (
     <Row className="hp-ecommerce-app-detail hp-mb-32" key={id}>
       <Col className="hp-mb-32" span={24}>

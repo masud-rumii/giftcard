@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-// redux
-import { useSelector } from "react-redux";
-
 // antd
 import { Button, Form, Input, Modal, Space, Table, Image } from "antd";
 const { TextArea } = Input;
@@ -17,8 +14,6 @@ export default function OperatorsTable({ dataSource, loading }) {
     setId(id);
     setIsModalOpen(true);
   };
-
-  console.log({ dataSource, loading });
 
   const handleOk = () => {
     setIsModalOpen(false);

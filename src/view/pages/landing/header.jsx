@@ -28,7 +28,7 @@ export default function LandingHeader() {
       </Menu.Item>
       <Menu.Item key={1} className="hp-border-radius">
         <Link
-          to="/single-category/1"
+          to="/single-service/1"
           style={{ color: "#3A98D7", fontWeight: "500", fontSize: "15px" }}
         >
           Category
