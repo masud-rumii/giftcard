@@ -7,7 +7,7 @@ export default function CategoryCard({ title, id }) {
   const history = useHistory();
 
   return (
-    <Col lg={4} onClick={() => history.push(`/single-category/${id}`)}>
+    <Col lg={6} onClick={() => history.push(`/single-category/${id}`)}>
       <Card
         className="hp-dashboard-feature-card hp-cursor-pointer category-card"
         style={{ backgroundColor: "#3A98D7" }}
