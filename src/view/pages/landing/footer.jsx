@@ -122,7 +122,7 @@ export default function LandingFooter() {
               <Form.Item
                 style={{ marginBottom: "20px" }}
                 label="First Name"
-                name="text"
+                name="firstname"
                 rules={[
                   {
                     required: true,
@@ -136,7 +136,7 @@ export default function LandingFooter() {
               <Form.Item
                 style={{ marginBottom: "20px" }}
                 label="Last Name"
-                name="text"
+                name="lastname"
                 rules={[
                   {
                     required: true,
