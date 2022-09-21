@@ -3,7 +3,7 @@ import React from "react";
 
 export default function DetailsCard({ operatorDetails = {}, products = [] }) {
   const { name, logoUrl, countryId, id } = operatorDetails;
-  console.log(products);
+
   return (
     <Row className="hp-ecommerce-app-detail hp-mb-32" key={id}>
       <Col className="hp-mb-32" span={24}>
