@@ -10,59 +10,10 @@ import Sidebar from "./Sidebar";
 
 export default function Shop({ id }) {
   const [productListToggle, setProductListToggle] = useState(false);
-
-  // Redux
-  const products = useSelector((state) => state.ecommerce.products);
-  const searchValue = useSelector((state) => state.ecommerce.searchValue);
   const { data: allOperator, isLoading } = useSelector((state) => state.operator);
-  const priceFilterValue = useSelector((state) => state.ecommerce.priceFilterValue);
 
-  const productsFilters = products.filter((item) => {
-    return item.title.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1;
-  });
-
-  productsFilters.sort((a, b) => {
-    if (a.discount !== "" && b.discount !== "") {
-      if (parseFloat(a.discount) > parseFloat(b.discount)) {
-        return priceFilterValue === "lowest" ? 1 : -1;
-      }
-
-      if (parseFloat(a.discount) < parseFloat(b.discount)) {
-        return priceFilterValue === "lowest" ? -1 : 1;
-      }
-    } else {
-      if (parseFloat(a.price) > parseFloat(b.price)) {
-        return priceFilterValue === "lowest" ? 1 : -1;
-      }
-
-      if (parseFloat(a.price) < parseFloat(b.price)) {
-        return priceFilterValue === "lowest" ? -1 : 1;
-      }
-    }
-
-    if (a.discount === "") {
-      if (parseFloat(a.price) > parseFloat(b.discount)) {
-        return priceFilterValue === "lowest" ? 1 : -1;
-      }
-
-      if (parseFloat(a.price) < parseFloat(b.discount)) {
-        return priceFilterValue === "lowest" ? -1 : 1;
-      }
-    }
-
-    if (b.discount === "") {
-      if (parseFloat(a.discount) > parseFloat(b.price)) {
-        return priceFilterValue === "lowest" ? 1 : -1;
-      }
-
-      if (parseFloat(a.discount) < parseFloat(b.price)) {
-        return priceFilterValue === "lowest" ? -1 : 1;
-      }
-    }
-  });
-
-  const pagiCheck = productsFilters.length <= 6 ? null : { pageSize: 6 };
-  const pagiCheckLarge = productsFilters.length <= 3 ? null : { pageSize: 3 };
+  const pagiCheck = { pageSize: 6 };
+  const pagiCheckLarge = { pageSize: 3 };
 
   // Sidebar Mobile
   const [visible, setVisible] = useState(false);
@@ -114,14 +65,14 @@ export default function Shop({ id }) {
                 loading={isLoading}
                 pagination={pagiCheck}
                 dataSource={allOperator}
-                renderItem={(value) => <Product value={value} />}
+                renderItem={(value) => <Product serviceId={id} value={value} />}
               />
             ) : (
               <List
                 loading={isLoading}
                 pagination={pagiCheckLarge}
                 dataSource={allOperator}
-                renderItem={(value) => <ProductLarge value={value} />}
+                renderItem={(value) => <ProductLarge serviceId={id} value={value} />}
               />
             )}
           </Col>
